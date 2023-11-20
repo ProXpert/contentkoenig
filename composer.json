@@ -1,0 +1,11 @@
+{
+  "config": {
+    "platform": {
+      "php": "7.2.0"
+    }
+  },
+  "require": {
+    "nesbot/carbon": "^2.68",
+    "symfony/polyfill-iconv": "^1.26"
+  }
+}

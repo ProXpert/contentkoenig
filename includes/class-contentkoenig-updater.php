@@ -49,18 +49,13 @@ class Contentkoenig_Updater {
 
     public function cron(){
         if ( ! wp_next_scheduled( $this->plugin_slug . '_cron_make_posts' ) ) {
-          wp_schedule_event( time(), 'every_five_minutes', $this->plugin_slug . '_cron_make_posts' );
+          wp_schedule_event( time(), 'every_minute', $this->plugin_slug . '_cron_make_posts' );
         }
         if ( ! wp_next_scheduled( $this->plugin_slug . '_cron_licence_check' ) ) {
           wp_schedule_event( time(), 'daily', $this->plugin_slug . '_cron_licence_check' );
         }
         if ( ! wp_next_scheduled( $this->plugin_slug . '_cron_clear_posts' ) ) {
           wp_schedule_event( time(), 'daily', $this->plugin_slug . '_cron_clear_posts' );
-        } else {
-          //already scheduled so clear and recreate to make sure it is daily, used to be every 15 minutes
-          $timestamp = wp_next_scheduled( $this->plugin_slug . '_cron_clear_posts');
-          wp_unschedule_event( $timestamp, $this->plugin_slug . '_cron_clear_posts' );
-          wp_schedule_event( time(), 'daily', $this->plugin_slug. '_cron_clear_posts' );
         }
     }
 

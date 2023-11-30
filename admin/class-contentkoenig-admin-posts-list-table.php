@@ -17,7 +17,7 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
 			'plural'   => 'posts',    // Plural name of the listed records.
 			'ajax'     => false,       // Does this table support ajax?
 		) );
-		
+
         $class = PLUGIN_CLASS_uhbyqy . '_Shared';
 		$this->shared = new $class;
 	}

@@ -221,7 +221,7 @@ class Contentkoenig_Admin {
         if($response['error'] === false){
             update_option(PLUGIN_SLUG_uhbyqy . '_active', true);
             update_option(PLUGIN_SLUG_uhbyqy . '_uid', $response['response']['uid']);
-            update_option(PLUGIN_SLUG_uhbyqy . '_authority_link', isset($response['response']['limits']['AuthorityLink']) && $response['response']['limits']['AuthorityLink'] === true);
+            update_option(PLUGIN_SLUG_uhbyqy . '_authority_link', $response['response']['limits']['AuthorityLink'] ?? false);
         }else{
             update_option(PLUGIN_SLUG_uhbyqy . '_active', false);
             update_option(PLUGIN_SLUG_uhbyqy . '_uid', '');

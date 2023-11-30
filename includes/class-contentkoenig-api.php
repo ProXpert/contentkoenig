@@ -4,7 +4,7 @@ class Contentkoenig_Api {
     private $uid;
 
     public function __construct($uid = null) {
-        $this->rootUrl = 'https://wordpressautoblog.com';
+        $this->rootUrl = 'https://api.chatbo.de/v2/fetch/aiuto';
         $this->uid = $uid;
     }
 

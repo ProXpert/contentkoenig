@@ -219,11 +219,10 @@ class Contentkoenig_Project {
             $endRange =  $startRange->copy()->endOfDay();
         }
 
+        $timeMinutes = $startRange->diffInMinutes($endRange);
         $postsToMake = intval($this->project->max_posts_per_day) - $postsInDay;
 
-        $addMinutesMin = 15;
-        $addMinutesMax = $startRange->diffInMinutes($endRange) / $postsToMake;
-        $nextPostMinutes = rand($addMinutesMin, $addMinutesMax);
+        $nextPostMinutes = -log(rand() / getrandmax()) * $timeMinutes / $postsToMake;
         $nextPost = $startRange->copy()->addMinutes($nextPostMinutes);
 
         return $nextPost->setTimezone('UTC')->toDateTimeString();

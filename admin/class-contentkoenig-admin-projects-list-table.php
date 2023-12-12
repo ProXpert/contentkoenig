@@ -21,11 +21,11 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
     public function get_columns() {
         $columns = array(
             'cb'       => '<input type="checkbox" />', // Render a checkbox instead of text.
-            'name'    => __( 'Name', 'Column label', PLUGIN_SLUG_uhbyqy ),
-            'active'    => __( 'Active', 'Column label', PLUGIN_SLUG_uhbyqy ),
-            'next_post'   => __( 'Next Post', 'Column label', PLUGIN_SLUG_uhbyqy ),
-            'posts_made' => __( 'Posts Made', 'Column label', PLUGIN_SLUG_uhbyqy ),
-            'schedule' => __( 'Schedule', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'name'    => _x( 'Name', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'active'    => _x( 'Active', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'next_post'   => _x( 'Next Post', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'posts_made' => _x( 'Posts Made', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'schedule' => _x( 'Schedule', 'Column label', PLUGIN_SLUG_uhbyqy ),
         );
 
         return $columns;
@@ -94,10 +94,10 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
                     return $hours . ':' . $minutes;
                 };
 
-                return '<strong>Max Posts Total</strong>: ' . $item['max_posts_total'] . '<br />' .
-                '<strong>Max Posts Per Day</strong>: ' . $item['max_posts_per_day'] . '<br />' .
-                '<strong>Posting Days</strong>: ' . implode(', ', $post_days) . '<br />' .
-                '<strong>Posting Time</strong>: ' . $seconds_to_time($item['post_time_start']) . '-' . $seconds_to_time($item['post_time_end']);
+                return '<strong>' . __( 'Max Posts Total', PLUGIN_SLUG_uhbyqy ) . '</strong>: ' . $item['max_posts_total'] . '<br />' .
+                '<strong>' . __( 'Max Posts Per Day', PLUGIN_SLUG_uhbyqy ) . '</strong>: ' . $item['max_posts_per_day'] . '<br />' .
+                '<strong>' . __( 'Posting Days', PLUGIN_SLUG_uhbyqy ) . '</strong>: ' . implode(', ', $post_days) . '<br />' .
+                '<strong>' . __( 'Posting Time', PLUGIN_SLUG_uhbyqy ) . '</strong>: ' . $seconds_to_time($item['post_time_start']) . '-' . $seconds_to_time($item['post_time_end']);
                 break;
             default:
                 //return print_r( $item, true ); // Show the whole array for troubleshooting purposes.
@@ -126,7 +126,7 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
         $actions['edit'] = sprintf(
             '<a href="%1$s">%2$s</a>',
             esc_url(  add_query_arg( $edit_query_args, 'admin.php' ) ),
-            __( 'Edit', 'List table row action', PLUGIN_SLUG_uhbyqy )
+            _x( 'Edit', 'List table row action', PLUGIN_SLUG_uhbyqy )
         );
 
         // Build edit row action.
@@ -141,7 +141,7 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
             $actions['status'] = sprintf(
                 '<a href="%1$s">%2$s</a>',
                 esc_url(   add_query_arg( $status_query_args, 'admin.php' ) ),
-                __( 'Resume', 'List table row action', PLUGIN_SLUG_uhbyqy )
+                _x( 'Resume', 'List table row action', PLUGIN_SLUG_uhbyqy )
             );
         }else{
             $status_query_args = array(
@@ -154,7 +154,7 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
             $actions['status'] = sprintf(
                 '<a href="%1$s">%2$s</a>',
                 esc_url(  add_query_arg( $status_query_args, 'admin.php' ) ),
-                __( 'Pause', 'List table row action', PLUGIN_SLUG_uhbyqy )
+                _x( 'Pause', 'List table row action', PLUGIN_SLUG_uhbyqy )
             );
         }
 
@@ -169,7 +169,7 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
             $actions['post'] = sprintf(
                 '<a href="%1$s">%2$s</a>',
                 esc_url(  add_query_arg( $post_query_args, 'admin.php' ) ),
-                __( 'Post Now', 'List table row action', PLUGIN_SLUG_uhbyqy )
+                _x( 'Post Now', 'List table row action', PLUGIN_SLUG_uhbyqy )
             );
         }
 
@@ -184,7 +184,7 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
         $actions['delete'] = sprintf(
             '<a href="%1$s">%2$s</a>',
             esc_url(  add_query_arg( $delete_query_args, 'admin.php' ) ),
-            __( 'Delete', 'List table row action', PLUGIN_SLUG_uhbyqy )
+            _x( 'Delete', 'List table row action', PLUGIN_SLUG_uhbyqy )
         );
 
         $status = '<small class="subtext">';
@@ -193,16 +193,16 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
         }else{
             switch($item['status'] ){
                 case 'starting':
-                    $status .= 'Starting';
+                    $status .= _x( 'Starting', 'status', PLUGIN_SLUG_uhbyqy );
                     break;
                 case 'idle':
-                    $status .= 'Waiting for next post';
+                    $status .= _x( 'Waiting for next post', 'status', PLUGIN_SLUG_uhbyqy );
                     break;
                 case 'waiting':
-                    $status .= 'Generating post';
+                    $status .= _x( 'Generating post', 'status', PLUGIN_SLUG_uhbyqy );
                     break;
                 case 'finished':
-                    $status .= 'Finished';
+                    $status .= _x( 'Finished', 'status', PLUGIN_SLUG_uhbyqy );
                     break;
             }
         }
@@ -218,9 +218,9 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
 
     protected function get_bulk_actions() {
         $actions = array(
-            'delete' => __( 'Delete', 'List table bulk action', PLUGIN_SLUG_uhbyqy ),
-            'resume' => __( 'Resume', 'List table bulk action', PLUGIN_SLUG_uhbyqy ),
-            'pause' => __( 'Pause', 'List table bulk action', PLUGIN_SLUG_uhbyqy ),
+            'delete' => _x( 'Delete', 'List table bulk action', PLUGIN_SLUG_uhbyqy ),
+            'resume' => _x( 'Resume', 'List table bulk action', PLUGIN_SLUG_uhbyqy ),
+            'pause' => _x( 'Pause', 'List table bulk action', PLUGIN_SLUG_uhbyqy ),
         );
 
         return $actions;

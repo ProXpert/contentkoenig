@@ -75,13 +75,13 @@ class Contentkoenig_Admin {
             if($licence_key === ''){
                 ?>
                 <div class="notice notice-warning">
-                    <p><a href="<?php echo menu_page_url(PLUGIN_SLUG_uhbyqy . '-admin-licence-key', false) ?>">Enter your licence key</a> to start using <?php echo PLUGIN_NAME_uhbyqy ?></p>
+                    <p><?php printf( _x( '<a href="%s">Enter your licence key</a> to start using %s', 'Admin notice', PLUGIN_SLUG_uhbyqy ), menu_page_url(PLUGIN_SLUG_uhbyqy. '-admin-licence-key', false), PLUGIN_NAME_uhbyqy ); ?></p>
                 </div>
                 <?php
             }else if(!$active){
                 ?>
                 <div class="notice notice-warning">
-                    <p>Your <?php echo PLUGIN_NAME_uhbyqy ?> account is not active, do you need to <a href="<?php echo menu_page_url(PLUGIN_SLUG_uhbyqy. '-admin-licence-key', false) ?>">update your licence key</a>?</p>
+                    <p><?php printf( _x( 'Your %s account is not active, do you need to <a href="%s">update your licence key</a>?', 'Admin notice', PLUGIN_SLUG_uhbyqy ), PLUGIN_NAME_uhbyqy, menu_page_url(PLUGIN_SLUG_uhbyqy. '-admin-licence-key', false) ); ?></p>
                 </div>
                 <?php
             }
@@ -91,7 +91,7 @@ class Contentkoenig_Admin {
             if($_GET[PLUGIN_SLUG_uhbyqy . '_notice'] === 'licence_key_updated'){
             ?>
             <div class="notice notice-success">
-                <p>Your licence key was successfully linked to this site!</p>
+                <p><?php esc_html_e( 'Your licence key was successfully linked to this site!', PLUGIN_SLUG_uhbyqy ); ?></p>
             </div>
             <?php
             }
@@ -129,7 +129,7 @@ class Contentkoenig_Admin {
         add_submenu_page(
             PLUGIN_SLUG_uhbyqy . '-admin',
             PLUGIN_NAME_uhbyqy . ' Projects',
-            'Projects',
+            _x( 'Projects', 'Admin menu', PLUGIN_SLUG_uhbyqy ),
             'manage_options',
             PLUGIN_SLUG_uhbyqy . '-admin-projects',
             [$this, 'render_admin_projects_page']
@@ -138,7 +138,7 @@ class Contentkoenig_Admin {
         add_submenu_page(
             PLUGIN_SLUG_uhbyqy . '-admin',
             PLUGIN_NAME_uhbyqy . ' Posts',
-            'Posts',
+            _x( 'Posts', 'Admin menu', PLUGIN_SLUG_uhbyqy ),
             'manage_options',
             PLUGIN_SLUG_uhbyqy . '-admin-posts',
             [$this, 'render_admin_posts_page']
@@ -147,7 +147,7 @@ class Contentkoenig_Admin {
         add_submenu_page(
             PLUGIN_SLUG_uhbyqy . '-admin',
             PLUGIN_NAME_uhbyqy . ' Licence Key',
-            'Licence Key',
+            _x( 'Licence Key', 'Admin menu', PLUGIN_SLUG_uhbyqy ),
             'manage_options',
             PLUGIN_SLUG_uhbyqy . '-admin-licence-key',
             [$this, 'render_admin_licence_key_page']
@@ -156,7 +156,7 @@ class Contentkoenig_Admin {
         add_submenu_page(
             PLUGIN_SLUG_uhbyqy . '-admin',
             PLUGIN_NAME_uhbyqy . ' Settings',
-            'Settings',
+            _x( 'Settings', 'Admin menu', PLUGIN_SLUG_uhbyqy ),
             'manage_options',
             PLUGIN_SLUG_uhbyqy . '-admin-settings',
             [$this, 'render_admin_settings_page']

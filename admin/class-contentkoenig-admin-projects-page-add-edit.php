@@ -43,21 +43,21 @@ $rewriter_key = get_option(PLUGIN_SLUG_uhbyqy . '_rewriter_api_key');
 $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
 ?>
 <div id="authority_link_modal" class="modal" style="max-width: 50%; width: 50%; z-index: 999999;">
-    <h2>Find Authority Links</h2>
+    <h2><?php esc_html_e( 'Find Authority Links', PLUGIN_SLUG_uhbyqy ); ?></h2>
     <table width="100%" style="width: 100%;">
         <tr>
             <td style="width: 80%;">
-                <input name="name" type="text" id="authority_link_modal_search" value="" placeholder="Enter search query..." class="regular-text" style="width: 100%;">
+                <input name="name" type="text" id="authority_link_modal_search" value="" placeholder="<?php esc_html_e( 'Enter search query...', PLUGIN_SLUG_uhbyqy ); ?>" class="regular-text" style="width: 100%;">
             </td>
             <td>
-                <p class="submit" style="padding-top: 5px;"><button type="button" name="authority_link_modal_submit" id="authority_link_modal_submit" class="button button-primary" style="width: 100%;">Search</button></p>
+                <p class="submit" style="padding-top: 5px;"><button type="button" name="authority_link_modal_submit" id="authority_link_modal_submit" class="button button-primary" style="width: 100%;"><?php esc_html_e( 'Search', PLUGIN_SLUG_uhbyqy ); ?></button></p>
             </td>
         </tr>
     </table>
     <table id="authority_link_modal_results" width="100%" style="display: none;">
         <thead>
             <tr>
-                <th colspan="2" style="text-align: center; color: #616161;">Click the icon next to a link below to add it to your target links.</th>
+                <th colspan="2" style="text-align: center; color: #616161;"><?php esc_html_e( 'Click the icon next to a link below to add it to your target links.', PLUGIN_SLUG_uhbyqy ); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -65,34 +65,34 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
     </table>
 </div>
 <div class="wrap">
-    <h1><?php _e( $actionNice . ' Project', 'aiuto-blogger' ); ?></h1>
+    <h1><?php esc_html_e( $actionNice . ' Project', PLUGIN_SLUG_uhbyqy ); ?></h1>
     <form id="projectForm" method="post">
         <table class="form-table" role="presentation">
         <?php wp_nonce_field( PLUGIN_SLUG_uhbyqy . '-project-submit', PLUGIN_SLUG_uhbyqy . '-project-submit' ); ?>
             <tbody>
                 <tr>
-                    <th scope="row"><label for="name">Name</label></th>
+                    <th scope="row"><label for="name"><?php echo esc_html_x( 'Name', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <input name="name" type="text" id="name" value="<?php echo $action === 'edit' ? $project->name : '' ?>" class="regular-text">
                         <p class="description" id="name-description">
-                            The name used to refer to this project within Wordpress, use something easily identifiable to help you with managing Aiutoblogger
+                            <?php printf( esc_html__( 'The name used to refer to this project within Wordpress, use something easily identifiable to help you with managing %s', PLUGIN_SLUG_uhbyqy ), PLUGIN_NAME_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="active">Active</label></th>
+                    <th scope="row"><label for="active"><?php echo esc_html_x( 'Active', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="active" id="active">
                             <option value="0"<?php echo $action === 'edit' && $project->active == 0 ? ' selected="selected"' : '' ?>>Inactive</option>
                             <option value="1"<?php echo $action === 'edit' && $project->active == 1 ? ' selected="selected"' : '' ?>>Active</option>
                         </select>
                         <p class="description" id="active-description">
-                            Set this project to active or inactive. An inactive project will not have any new posts created
+                            <?php esc_html_e( 'Set this project to active or inactive. An inactive project will not have any new posts created', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="language">Language</label></th>
+                    <th scope="row"><label for="language"><?php echo esc_html_x( 'Language', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="language" id="language">
                             <?php foreach($languageOptions as $languageOption){ ?>
@@ -102,192 +102,192 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                             <?php } ?>
                         </select>
                         <p class="description" id="language-description">
-                            The language that posts will be made in
+                            <?php esc_html_e( 'The language that posts will be made in', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr><td colspan="2" style="padding: 0;"><hr /></td></tr>
                 <tr>
-                    <th scope="row"><label for="max_posts_total">Maximum Posts Total</label></th>
+                    <th scope="row"><label for="max_posts_total"><?php echo esc_html_x( 'Maximum Posts Total', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <input name="max_posts_total" type="number" id="max_posts_total" value="<?php echo $action === 'edit' ? $project->max_posts_total : '25' ?>" class="regular-text">
                         <p class="description" id="max_posts_total-description">
-                            The maximum number of posts to make total in this project
+                            <?php esc_html_e( 'The maximum number of posts to make total in this project', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="max_posts_per_day">Maximum Posts Per Day</label></th>
+                    <th scope="row"><label for="max_posts_per_day"><?php echo esc_html_x( 'Maximum Posts Per Day', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <input name="max_posts_per_day" type="number" id="max_posts_per_day" value="<?php echo $action === 'edit' ? $project->max_posts_per_day : '1' ?>" class="regular-text">
                         <p class="description" id="max_posts_per_day-description">
-                            The maximum number of posts to make per day in this project
+                            <?php esc_html_e( 'The maximum number of posts to make per day in this project', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr><td colspan="2" style="padding: 0;"><hr /></td></tr>
 
                 <tr>
-                    <th scope="row"><label for="authors">Post Days</label></th>
+                    <th scope="row"><label for="authors"><?php echo esc_html_x( 'Post Days', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <label for="post_days[]">
                             <input type="checkbox" class="post_day" name="post_days[]" value="monday" name="checkbox"<?php echo in_array('monday', $postDays) ? ' checked="checked"' : '' ?> />
-                            Monday
+                            <?php echo esc_html_x( 'Monday', 'weekday', PLUGIN_SLUG_uhbyqy ); ?>
                         </label><br />
                         <label for="post_days[]">
                             <input type="checkbox" class="post_day" name="post_days[]" value="tuesday" name="checkbox"<?php echo in_array('tuesday', $postDays) ? ' checked="checked"' : '' ?> />
-                            Tuesday
+                            <?php echo esc_html_x( 'Tuesday', 'weekday', PLUGIN_SLUG_uhbyqy ); ?>
                         </label><br />
                         <label for="post_days[]">
                             <input type="checkbox" class="post_day" name="post_days[]" value="wednesday" name="checkbox"<?php echo in_array('wednesday', $postDays) ? ' checked="checked"' : '' ?> />
-                            Wednesday
+                            <?php echo esc_html_x( 'Wednesday', 'weekday', PLUGIN_SLUG_uhbyqy ); ?>
                         </label><br />
                         <label for="post_days[]">
                             <input type="checkbox" class="post_day" name="post_days[]" value="thursday" name="checkbox"<?php echo in_array('thursday', $postDays) ? ' checked="checked"' : '' ?> />
-                            Thursday
+                            <?php echo esc_html_x( 'Thursday', 'weekday', PLUGIN_SLUG_uhbyqy ); ?>
                         </label><br />
                         <label for="post_days[]">
                             <input type="checkbox" class="post_day" name="post_days[]" value="friday" name="checkbox"<?php echo in_array('friday', $postDays) ? ' checked="checked"' : '' ?> />
-                            Friday
+                            <?php echo esc_html_x( 'Friday', 'weekday', PLUGIN_SLUG_uhbyqy ); ?>
                         </label><br />
                         <label for="post_days[]">
                             <input type="checkbox" class="post_day" name="post_days[]" value="saturday" name="checkbox"<?php echo in_array('saturday', $postDays) ? ' checked="checked"' : '' ?> />
-                            Saturday
+                            <?php echo esc_html_x( 'Saturday', 'weekday', PLUGIN_SLUG_uhbyqy ); ?>
                         </label><br />
                         <label for="post_days[]">
                             <input type="checkbox" class="post_day" name="post_days[]" value="sunday" name="checkbox"<?php echo in_array('sunday', $postDays) ? ' checked="checked"' : '' ?> />
-                            Sunday
+                            <?php echo esc_html_x( 'Sunday', 'weekday', PLUGIN_SLUG_uhbyqy ); ?>
                         </label><br />
                         <p class="description" id="post_days-description">
-                            Select the days that this project should post on
+                            <?php echo esc_html_x( 'Select the days that this project should post on', 'weekday', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                         <p class="description description-error"></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="post_time">Post Time</label></th>
+                    <th scope="row"><label for="post_time"><?php echo esc_html_x( 'Post Time', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <p><span class="slider-time"></span> - <span class="slider-time2"></span>
                         <div id="post_time" style="width: 400px;"></div>
                         <p class="description" id="post_time-description">
-                            Posts will only be made from in this time range within scheduled days
+                            <?php esc_html_e( 'Posts will only be made from in this time range within scheduled days', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr><td colspan="2" style="padding: 0;"><hr /></td></tr>
                 <tr>
-                    <th scope="row"><label for="prompt_type">Creation Type</label></th>
+                    <th scope="row"><label for="prompt_type"><?php echo esc_html_x( 'Creation Type', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="prompt_type" id="prompt_type">
-                            <option value="standard:subject"<?php echo $action === 'edit' && $project->prompt_type == 'standard:subject' ? ' selected="selected"' : '' ?>>Subject</option>
-                            <option value="standard:subject_topics"<?php echo $action === 'edit' && $project->prompt_type == 'standard:subject_topics' ? ' selected="selected"' : '' ?>>Subject & Topics</option>
+                            <option value="standard:subject"<?php echo $action === 'edit' && $project->prompt_type == 'standard:subject' ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Subject', PLUGIN_SLUG_uhbyqy ); ?></option>
+                            <option value="standard:subject_topics"<?php echo $action === 'edit' && $project->prompt_type == 'standard:subject_topics' ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Subject & Topics', PLUGIN_SLUG_uhbyqy ); ?></option>
                         </select>
                         <p class="description" id="prompt_type-description">
-                            This setting decides how we prompt the AI engine to create articles, 'Subject' will generate articles for a broad niche whilst 'Subject & Topics' allows you to generate more specific content
+                            <?php esc_html_e( "This setting decides how we prompt the AI engine to create articles, 'Subject' will generate articles for a broad niche whilst 'Subject & Topics' allows you to generate more specific content", PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr id="prompt_type_subject">
-                    <th scope="row"><label for="subject">Niche</label></th>
+                    <th scope="row"><label for="subject"><?php echo esc_html_x( 'Niche', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <input name="subject" type="text" id="subject" value="<?php echo $action === 'edit' ? $project->subject : '' ?>" class="regular-text">
                         <p class="description" id="subject-description">
-                            The niche/subject of this article. This should be a fairly high level description which allows the AI engine to focus it's knowledge
+                            <?php esc_html_e( "The niche/subject of this article. This should be a fairly high level description which allows the AI engine to focus it's knowledge", PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr id="prompt_type_topics">
-                    <th scope="row"><label for="topics">Topics</label></th>
+                    <th scope="row"><label for="topics"><?php echo esc_html_x( 'Topics', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <textarea name="topics" type="text" id="topics" class="regular-text" rows="10"><?php echo $action === 'edit' ? $project->topics : '' ?></textarea>
                         <p class="description" id="topics-description">
-                            If you would like to focus on specific topic(s) of your niche then enter them here. 1 per line, maximum of 3 topics
+                            <?php esc_html_e( 'If you would like to focus on specific topic(s) of your niche then enter them here. 1 per line', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr><td colspan="2" style="padding: 0;"><hr /></td></tr>
                 <tr>
-                    <th scope="row"><label for="post_type">Post Type</label></th>
+                    <th scope="row"><label for="post_type"><?php echo esc_html_x( 'Post Type', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="post_type" id="post_type">
-                            <option value="publish"<?php echo $action === 'edit' && $project->post_type == 'publish' ? ' selected="selected"' : '' ?>>Publish</option>
-                            <option value="draft"<?php echo $action === 'edit' && $project->post_type == 'draft' ? ' selected="selected"' : '' ?>>Draft</option>
+                            <option value="publish"<?php echo $action === 'edit' && $project->post_type == 'publish' ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Publish', PLUGIN_SLUG_uhbyqy ); ?></option>
+                            <option value="draft"<?php echo $action === 'edit' && $project->post_type == 'draft' ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Draft', PLUGIN_SLUG_uhbyqy ); ?></option>
                         </select>
                         <p class="description" id="active-description">
-                            Setting to 'Publish' will make posts immediately public on your blog, select 'Draft' if you would like the option to review and manually approve articles
+                            <?php esc_html_e( "Setting to 'Publish' will make posts immediately public on your blog, select 'Draft' if you would like the option to review and manually approve articles", PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr><td colspan="2" style="padding: 0;"><hr /></td></tr>
                 <tr>
-                    <th scope="row"><label for="interlinking">Interlinking</label></th>
+                    <th scope="row"><label for="interlinking"><?php echo esc_html_x( 'Interlinking', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="interlinking" id="interlinking">
                             <option value="0"<?php echo $action === 'edit' && $project->interlinking == 0 ? ' selected="selected"' : '' ?>>Disabled</option>
                             <option value="1"<?php echo $action === 'edit' && $project->interlinking == 1 ? ' selected="selected"' : '' ?>>Enabled</option>
                         </select>
                         <p class="description" id="interlinking-description">
-                            Enabling interlinking will link from new posts to existing posts (made by the plugin) which use the same tag(s)
+                            <?php esc_html_e( 'Enabling interlinking will link from new posts to existing posts (made by the plugin) which use the same tag(s)', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr class="interlinking_row">
-                    <th scope="row"><label for="interlinking_all_projects">Interlinking Targets</label></th>
+                    <th scope="row"><label for="interlinking_all_projects"><?php echo esc_html_x( 'Interlinking Targets', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="interlinking_all_projects" id="interlinking_all_projects">
-                            <option value="0"<?php echo $action === 'edit' && $project->interlinking_all_projects == 0 ? ' selected="selected"' : '' ?>>This Project Only</option>
-                            <option value="1"<?php echo $action === 'edit' && $project->interlinking_all_projects == 1 ? ' selected="selected"' : '' ?>>All Projects</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->interlinking_all_projects == 0 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'This Project Only', PLUGIN_SLUG_uhbyqy ); ?></option>
+                            <option value="1"<?php echo $action === 'edit' && $project->interlinking_all_projects == 1 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'All Projects', PLUGIN_SLUG_uhbyqy ); ?></option>
                         </select>
                         <p class="description" id="interlinking_all_projects-description">
-                            Select if you would like to link between posts made just in this project or across all projects
+                            <?php esc_html_e( 'Select if you would like to link between posts made just in this project or across all projects', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr class="interlinking_row">
-                    <th scope="row"><label for="interlinking_count">Number of Links</label></th>
+                    <th scope="row"><label for="interlinking_count"><?php echo esc_html_x( 'Number of Links', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <input name="interlinking_count" type="number" id="interlinking_count" value="<?php echo $action === 'edit' ? $project->interlinking_count : '2' ?>" class="regular-text">
                         <p class="description" id="interlinking_count-description">
-                            The number of links that the plugin will attempt to create in each post
+                            <?php esc_html_e( 'The number of links that the plugin will attempt to create in each post', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr><td colspan="2" style="padding: 0;"><hr /></td></tr>
                 <tr>
-                    <th scope="row"><label for="target_linking">Target Linking</label></th>
+                    <th scope="row"><label for="target_linking"><?php echo esc_html_x( 'Target Linking', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="target_linking" id="target_linking">
-                            <option value="0"<?php echo $action === 'edit' && $project->target_linking == 0 ? ' selected="selected"' : '' ?>>Disabled</option>
-                            <option value="1"<?php echo $action === 'edit' && $project->target_linking == 1 ? ' selected="selected"' : '' ?>>Enabled</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->target_linking == 0 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Disabled', PLUGIN_SLUG_uhbyqy ); ?></option>
+                            <option value="1"<?php echo $action === 'edit' && $project->target_linking == 1 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Enabled', PLUGIN_SLUG_uhbyqy ); ?></option>
                         </select>
                         <p class="description" id="target_linking-description">
-                            Enable if you would like the plugin to insert outbound links to the URL(s) of your choice, enable this option
+                            <?php esc_html_e( 'Enable if you would like the plugin to insert outbound links to the URL(s) of your choice, enable this option', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr class="target_linking_row">
-                    <th scope="row"><label for="target_linking_percentage">Target Linking Percentage</label></th>
+                    <th scope="row"><label for="target_linking_percentage"><?php echo esc_html_x( 'Target Linking Percentage', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <p><span id="target_linking_percentage_display"></span>%</span>
                         <div id="target_linking_percentage" style="width: 400px;"></div>
                         <p class="description" id="target_linking_percentage-description">
-                            The percentage of posts in which target links will be added
+                            <?php esc_html_e( 'The percentage of posts in which target links will be added', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
                 <tr class="target_linking_row">
-                    <th scope="row"><label>Targets</label></th>
+                    <th scope="row"><label><?php echo esc_html_x( 'Targets', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td style="padding-top: 0;">
                         <table id="target_linking_targets_table">
                             <div id="target_linking_targets_table_append"></div>
                             <tr>
                                 <td colspan="4" style="padding-left: 0;">
                                     <a href="#" id="add_target_link" class="button button-primary" alt="Add new target link" style="padding: 5px; padding-right: 10px; padding-left: 10px; color: #737373; background: #d4d4d4; border-color: #d4d4d4">
-                                        <i class="fa-solid fa-plus fa-xl"></i>&nbsp;&nbsp;Add Link
+                                        <i class="fa-solid fa-plus fa-xl"></i>&nbsp;&nbsp;<?php esc_html_e( 'Add Link', PLUGIN_SLUG_uhbyqy ); ?>
                                     </a>
                                     <?php if($authority_link){ ?>
                                     <a href="#authority_link_modal" rel="modal:open" id="authority_link_finder_btn" class="button button-primary" alt="Find authority links" style="padding: 5px; padding-right: 10px; padding-left: 10px; color: #737373; background: #d4d4d4; border-color: #d4d4d4">
-                                        <i class="fa-solid fa-search fa-xl"></i>&nbsp;&nbsp;Find Authority Links
+                                        <i class="fa-solid fa-search fa-xl"></i>&nbsp;&nbsp;<?php esc_html_e( 'Find Authority Links', PLUGIN_SLUG_uhbyqy ); ?>
                                     </a>
                                     <?php } ?>
                                 </td>
@@ -298,7 +298,7 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                 </tr>
                 <tr><td colspan="2" style="padding: 0;"><hr /></td></tr>
                 <tr>
-                    <th scope="row"><label for="authors">Authors</label></th>
+                    <th scope="row"><label for="authors"><?php echo esc_html_x( 'Authors', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <?php foreach($users as $user){ ?>
                         <label for="authors[]">
@@ -307,19 +307,19 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                         </label><br />
                         <?php } ?>
                         <p class="description" id="authors-description">
-                            Select which user(s) posts should be made as. If more than 1 is selected than a random user will be used from the selection each time
+                            <?php esc_html_e( 'Select which user(s) posts should be made as. If more than 1 is selected than a random user will be used from the selection each time', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                         <p class="description description-error"></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="categories">Categories</label></th>
+                    <th scope="row"><label for="categories"><?php echo esc_html_x( 'Categories', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                        <ul style="margin-top: 7px;">
                            <?php wp_category_checklist(0, 0, $projectCategories, false, null, false); ?>
                        </ul>
                         <p class="description" id="categories-description">
-                            Select which categories posts should be assigned to. If none are selected posts will be made uncategorized
+                            <?php esc_html_e( 'Select which categories posts should be assigned to. If none are selected posts will be made uncategorized', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
@@ -330,14 +330,14 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                 </td></tr>
                 <?php } ?>
                 <tr>
-                    <th scope="row"><label for="rewrite">Rewrite</label></th>
+                    <th scope="row"><label for="rewrite"><?php echo esc_html_x( 'Rewrite', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="rewrite" id="rewrite" <?php if(!$rewriter_key_added){echo "disabled";} ?>>
-                            <option value="0"<?php echo $action === 'edit' && $project->rewrite == 0 ? ' selected="selected"' : '' ?>>Disabled</option>
-                            <option value="1"<?php echo $action === 'edit' && $project->rewrite == 1 ? ' selected="selected"' : '' ?>>Enabled</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->rewrite == 0 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Disabled', PLUGIN_SLUG_uhbyqy ); ?></option>
+                            <option value="1"<?php echo $action === 'edit' && $project->rewrite == 1 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Enabled', PLUGIN_SLUG_uhbyqy ); ?></option>
                         </select>
                         <p class="description" id="rewrite-description">
-                            Enable if you would like posts to be rewritten to bypass AI content detection. <strong>Note: </strong> If this option is enabled then there is no need for a separate rewriting plugin as this would lead to content being rewritten twice.
+                            <?php _e( 'Enable if you would like posts to be rewritten to bypass AI content detection. <strong>Note: </strong> If this option is enabled then there is no need for a separate rewriting plugin as this would lead to content being rewritten twice.', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>

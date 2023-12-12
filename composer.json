@@ -5,7 +5,6 @@
     }
   },
   "require": {
-    "nesbot/carbon": "^2.68",
-    "symfony/polyfill-iconv": "^1.26"
+    "nesbot/carbon": "^2.68"
   }
 }

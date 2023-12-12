@@ -33,12 +33,12 @@ class Contentkoenig_Public {
     public function add_cron_intervals($schedules) {
         $schedules['every_minute'] = array(
             'interval'  => 60,
-            'display'   => __( 'Every Minute', PLUGIN_SLUG_uhbyqy )
+            'display'   => _x( 'Every Minute', 'cron interval', PLUGIN_SLUG_uhbyqy )
         );
 
         $schedules['daily'] = array(
             'interval'  => 86400,
-            'display'   => __( 'Every Day', PLUGIN_SLUG_uhbyqy )
+            'display'   => _x( 'Every Day', 'cron interval', PLUGIN_SLUG_uhbyqy )
         );
 
         return $schedules;

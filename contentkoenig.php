@@ -7,7 +7,7 @@ define( 'PLUGIN_NAME_uhbyqy', 'Content König' );
 /*
  * Plugin Name:       Content König
  * Plugin URI:        https://contentkoenig.com
- * Description:       Content König erstellt und postet automatisch fertige Artikel mit künstlicher Intelligenz  inkl. Bildern zu jedem Thema deiner Wahl
+ * Description:       Content König erstellt und postet automatisch fertige Artikel mit künstlicher Intelligenz inkl. Bildern zu jedem Thema deiner Wahl
  * Version:           1.0.35
  * Author:            Torsten Jaeger
  * Author URI:        https://contentkoenig.com
@@ -53,7 +53,7 @@ require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
 
 Puc_v4_Factory::buildUpdateChecker(
-    'https://wordpressautoblog.com/plugin/contentkoenig/contentkoenig.json',
+    'https://api.chatbo.de/plugins/contentkoenig.json',
     __FILE__,
     PLUGIN_SLUG_uhbyqy
 );

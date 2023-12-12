@@ -24,11 +24,11 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
 
     public function get_columns() {
         $columns = array(
-            'time'    => __( 'Time', 'Column label', PLUGIN_SLUG_uhbyqy ),
-            'project'    => __( 'Project', 'Column label', PLUGIN_SLUG_uhbyqy ),
-            'title'    => __( 'Title', 'Column label', PLUGIN_SLUG_uhbyqy ),
-            'status'   => __( 'Status', 'Column label', PLUGIN_SLUG_uhbyqy ),
-            'url'   => __( 'URL', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'time'    => _x( 'Time', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'project'    => _x( 'Project', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'title'    => _x( 'Title', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'status'   => _x( 'Status', 'Column label', PLUGIN_SLUG_uhbyqy ),
+            'url'   => _x( 'URL', 'Column label', PLUGIN_SLUG_uhbyqy ),
         );
 
         return $columns;
@@ -53,13 +53,13 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
                 break;
             case 'status':
                 if($item['got_data'] == 0 && $item['posted'] == 0){
-                    return 'Generating Post';
+                    return _x( 'Generating Post', 'status', PLUGIN_SLUG_uhbyqy );
                 }
                 if($item['got_data'] == 1 && $item['posted'] == 0){
-                    return 'Posting';
+                    return _x( 'Posting', 'status', PLUGIN_SLUG_uhbyqy );
                 }
                 if($item['got_data'] == 1 && $item['posted'] == 1){
-                    return 'Posted';
+                    return _x( 'Posted', 'status', PLUGIN_SLUG_uhbyqy );
                 }
                 break;
             case 'url':
@@ -92,7 +92,7 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
         $actions['edit'] = sprintf(
             '<a href="%1$s">%2$s</a>',
             esc_url(  add_query_arg( $edit_query_args, 'admin.php' ) ),
-            __( 'Edit', 'List table row action', PLUGIN_SLUG_uhbyqy )
+            _x( 'Edit', 'List table row action', PLUGIN_SLUG_uhbyqy )
         );
 
         // Build edit row action.
@@ -107,7 +107,7 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
             $actions['status'] = sprintf(
                 '<a href="%1$s">%2$s</a>',
                 esc_url(   add_query_arg( $status_query_args, 'admin.php' ) ),
-                __( 'Resume', 'List table row action', PLUGIN_SLUG_uhbyqy )
+                _x( 'Resume', 'List table row action', PLUGIN_SLUG_uhbyqy )
             );
         }else{
             $status_query_args = array(
@@ -120,7 +120,7 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
             $actions['status'] = sprintf(
                 '<a href="%1$s">%2$s</a>',
                 esc_url(  add_query_arg( $status_query_args, 'admin.php' ) ),
-                __( 'Pause', 'List table row action', PLUGIN_SLUG_uhbyqy )
+                _x( 'Pause', 'List table row action', PLUGIN_SLUG_uhbyqy )
             );
         }
 
@@ -135,7 +135,7 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
             $actions['post'] = sprintf(
                 '<a href="%1$s">%2$s</a>',
                 esc_url(  add_query_arg( $post_query_args, 'admin.php' ) ),
-                __( 'Post Now', 'List table row action', PLUGIN_SLUG_uhbyqy )
+                _x( 'Post Now', 'List table row action', PLUGIN_SLUG_uhbyqy )
             );
         }
 
@@ -150,25 +150,25 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
         $actions['delete'] = sprintf(
             '<a href="%1$s">%2$s</a>',
             esc_url(  add_query_arg( $delete_query_args, 'admin.php' ) ),
-            __( 'Delete', 'List table row action', PLUGIN_SLUG_uhbyqy )
+            _x( 'Delete', 'List table row action', PLUGIN_SLUG_uhbyqy )
         );
 
         $status = '<small class="subtext">';
         if($item['active'] == 0){
-            $status .= 'Not active';
+            $status .= _x( 'Not active', 'status', PLUGIN_SLUG_uhbyqy );
         }else{
             switch($item['status'] ){
                 case 'starting':
-                    $status .= 'Starting';
+                    $status .= _x( 'Starting', 'status', PLUGIN_SLUG_uhbyqy );
                     break;
                 case 'idle':
-                    $status .= 'Waiting for next post';
+                    $status .= _x( 'Waiting for next post', 'status', PLUGIN_SLUG_uhbyqy );
                     break;
                 case 'waiting':
-                    $status .= 'Generating post';
+                    $status .= _x( 'Generating post', 'status', PLUGIN_SLUG_uhbyqy );
                     break;
                 case 'finished':
-                    $status .= 'Finished';
+                    $status .= _x( 'Finished', 'status', PLUGIN_SLUG_uhbyqy );
                     break;
             }
         }

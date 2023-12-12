@@ -19,7 +19,7 @@ define( 'PLUGIN_NAME_uhbyqy', 'Content König' );
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 if ( version_compare( PHP_VERSION, '7.4', '<' ) ) {
@@ -27,14 +27,14 @@ if ( version_compare( PHP_VERSION, '7.4', '<' ) ) {
 }
 
 function activate_uhbyqy() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-' . PLUGIN_SLUG_uhbyqy . '-activator.php';
-	$class = PLUGIN_CLASS_uhbyqy . '_Activator';
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-' . PLUGIN_SLUG_uhbyqy . '-activator.php';
+    $class = PLUGIN_CLASS_uhbyqy . '_Activator';
     $class::activate();
 }
 
 function deactivate_uhbyqy() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-' . PLUGIN_SLUG_uhbyqy . '-deactivator.php';
-	$class = PLUGIN_CLASS_uhbyqy . '_Deactivator';
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-' . PLUGIN_SLUG_uhbyqy . '-deactivator.php';
+    $class = PLUGIN_CLASS_uhbyqy . '_Deactivator';
     $class::deactivate();
 }
 
@@ -53,9 +53,9 @@ require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
 
 Puc_v4_Factory::buildUpdateChecker(
-	'https://wordpressautoblog.com/plugin/contentkoenig/contentkoenig.json',
-	__FILE__,
-	PLUGIN_SLUG_uhbyqy
+    'https://wordpressautoblog.com/plugin/contentkoenig/contentkoenig.json',
+    __FILE__,
+    PLUGIN_SLUG_uhbyqy
 );
 
 /**
@@ -69,7 +69,7 @@ Puc_v4_Factory::buildUpdateChecker(
  */
 function run_uhbyqy() {
     $class = PLUGIN_CLASS_uhbyqy;
-	$plugin = new $class();
-	$plugin->run();
+    $plugin = new $class();
+    $plugin->run();
 }
 run_uhbyqy();

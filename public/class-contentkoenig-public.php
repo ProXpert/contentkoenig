@@ -2,13 +2,13 @@
 use Carbon\Carbon;
 
 class Contentkoenig_Public {
-	private $plugin_name;
-	private $version;
+    private $plugin_name;
+    private $version;
     private $shared;
 
-	public function __construct( $plugin_name, $version ) {
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+    public function __construct( $plugin_name, $version ) {
+        $this->plugin_name = $plugin_name;
+        $this->version = $version;
 
         $class = PLUGIN_CLASS_uhbyqy . '_Shared';
         $this->shared = new $class();
@@ -21,14 +21,14 @@ class Contentkoenig_Public {
 
         $class = PLUGIN_CLASS_uhbyqy . '_Api';
         $this->api = new $class();
-	}
+    }
 
-	public function enqueue_styles() {
+    public function enqueue_styles() {
 
-	}
+    }
 
-	public function enqueue_scripts() {
-	}
+    public function enqueue_scripts() {
+    }
 
     public function add_cron_intervals($schedules) {
         $schedules['every_minute'] = array(

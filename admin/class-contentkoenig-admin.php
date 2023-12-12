@@ -4,14 +4,14 @@ require dirname( __FILE__ ) . '/class-' . PLUGIN_SLUG_uhbyqy . '-admin-projects-
 
 class Contentkoenig_Admin {
 
-	private $plugin_name;
-	private $version;
+    private $plugin_name;
+    private $version;
 
-	public function __construct( $plugin_name, $version ) {
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+    public function __construct( $plugin_name, $version ) {
+        $this->plugin_name = $plugin_name;
+        $this->version = $version;
 
-		$class = PLUGIN_CLASS_uhbyqy . '_Shared';
+        $class = PLUGIN_CLASS_uhbyqy . '_Shared';
         $this->shared = new $class();
 
         $class = PLUGIN_CLASS_uhbyqy . '_Projects';
@@ -27,18 +27,18 @@ class Contentkoenig_Admin {
         $post = new $class(1);
         $project->doTargetLinking($post);
         die();*/
-	}
+    }
 
-	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/' . PLUGIN_SLUG_uhbyqy . '-admin.css', array(), $this->version, 'all' );
+    public function enqueue_styles() {
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/' . PLUGIN_SLUG_uhbyqy . '-admin.css', array(), $this->version, 'all' );
         wp_enqueue_style( $this->plugin_name . '-fv', plugin_dir_url( __FILE__ ) . 'css/formValidation.min.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name . '-select2', plugin_dir_url( __FILE__ ) . 'css/select2.min.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name . '-modal', plugin_dir_url( __FILE__ ) . 'css/jquery.modal.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name . '-select2', plugin_dir_url( __FILE__ ) . 'css/select2.min.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name . '-modal', plugin_dir_url( __FILE__ ) . 'css/jquery.modal.css', array(), $this->version, 'all' );
         wp_enqueue_style( $this->plugin_name . '-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css', array(), $this->version, 'all' );
-	}
+    }
 
-	public function enqueue_scripts() {
-		wp_register_script( $this->plugin_name . 'admin_js', plugin_dir_url( __FILE__ ) . 'js/' . PLUGIN_SLUG_uhbyqy . '-admin.js', array( 'jquery' ), $this->version, false );
+    public function enqueue_scripts() {
+        wp_register_script( $this->plugin_name . 'admin_js', plugin_dir_url( __FILE__ ) . 'js/' . PLUGIN_SLUG_uhbyqy . '-admin.js', array( 'jquery' ), $this->version, false );
         wp_enqueue_script($this->plugin_name . 'admin_js');
         wp_localize_script($this->plugin_name . 'admin_js', 'bloggerCustomVars', [
             'pluginSlug' => PLUGIN_SLUG_uhbyqy
@@ -48,10 +48,10 @@ class Contentkoenig_Admin {
         wp_register_script( $this->plugin_name . '-video-hosting', 'https://player.stoodaio.host/embed.js', array(), $this->version, false );
         wp_enqueue_script( $this->plugin_name . '-fv', plugin_dir_url( __FILE__ ) . 'js/fv/FormValidation.full.min.js', array(), $this->version, false );
         wp_enqueue_script( $this->plugin_name . '-select2', plugin_dir_url( __FILE__ ) . 'js/select2.min.js', array('jquery'), $this->version, false );
-		wp_enqueue_script( $this->plugin_name . '-modal', plugin_dir_url( __FILE__ ) . 'js/jquery.modal.js', array( 'jquery' ), $this->version, true );
+        wp_enqueue_script( $this->plugin_name . '-modal', plugin_dir_url( __FILE__ ) . 'js/jquery.modal.js', array( 'jquery' ), $this->version, true );
         wp_register_script( $this->plugin_name . '-embedly', 'https://cdn.embedly.com/widgets/platform.js', $this->version, false );
         wp_enqueue_script( 'jquery-ui-slider' );
-	}
+    }
 
     public function upgrade_check(){
         $class = PLUGIN_CLASS_uhbyqy . '_Updater';
@@ -277,7 +277,7 @@ class Contentkoenig_Admin {
         $post_type = $_POST['post_type'];
         $active = intval($_POST['active']);
         $authors = $_POST['authors'];
-	    $categories = isset($_POST['categories']) ? $_POST['categories'] : [];
+        $categories = isset($_POST['categories']) ? $_POST['categories'] : [];
         $prompt_type = $_POST['prompt_type'];
         $subject = $_POST['subject'];
         $topics = $_POST['topics'];
@@ -331,20 +331,20 @@ class Contentkoenig_Admin {
     }
 
     public function ajax_add_project(){
-	    $name = $_POST['name'];
-	    $language = $_POST['language'];
-	    $max_posts_per_day = $_POST['max_posts_per_day'];
-	    $max_posts_total = $_POST['max_posts_total'];
-	    $post_days = $_POST['post_days'];
-	    $post_type = $_POST['post_type'];
-	    $active = intval($_POST['active']);
-	    $authors = $_POST['authors'];
-	    $categories = isset($_POST['categories']) ? $_POST['categories'] : [];
-	    $prompt_type = $_POST['prompt_type'];
-	    $subject = $_POST['subject'];
-	    $topics = $_POST['topics'];
-	    $post_time_start = $_POST['post_time_start'];
-	    $post_time_end = $_POST['post_time_end'];
+        $name = $_POST['name'];
+        $language = $_POST['language'];
+        $max_posts_per_day = $_POST['max_posts_per_day'];
+        $max_posts_total = $_POST['max_posts_total'];
+        $post_days = $_POST['post_days'];
+        $post_type = $_POST['post_type'];
+        $active = intval($_POST['active']);
+        $authors = $_POST['authors'];
+        $categories = isset($_POST['categories']) ? $_POST['categories'] : [];
+        $prompt_type = $_POST['prompt_type'];
+        $subject = $_POST['subject'];
+        $topics = $_POST['topics'];
+        $post_time_start = $_POST['post_time_start'];
+        $post_time_end = $_POST['post_time_end'];
         $interlinking = $_POST['interlinking'];
         $interlinking_all_projects = $_POST['interlinking_all_projects'];
         $interlinking_count = $_POST['interlinking_count'];
@@ -353,7 +353,7 @@ class Contentkoenig_Admin {
         $target_linking_percentage = $_POST['target_linking_percentage'];
         $rewrite = $_POST['rewrite'];
 
-	    $id = $this->projects->add([
+        $id = $this->projects->add([
             'name' => $name,
             'language' => $language,
             'posts_made' => 0,

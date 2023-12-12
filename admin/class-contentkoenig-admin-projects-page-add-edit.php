@@ -83,8 +83,8 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                     <th scope="row"><label for="active">Active</label></th>
                     <td>
                         <select name="active" id="active">
-                        	<option value="0"<?php echo $action === 'edit' && $project->active == 0 ? ' selected="selected"' : '' ?>>Inactive</option>
-                        	<option value="1"<?php echo $action === 'edit' && $project->active == 1 ? ' selected="selected"' : '' ?>>Active</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->active == 0 ? ' selected="selected"' : '' ?>>Inactive</option>
+                            <option value="1"<?php echo $action === 'edit' && $project->active == 1 ? ' selected="selected"' : '' ?>>Active</option>
                         </select>
                         <p class="description" id="active-description">
                             Set this project to active or inactive. An inactive project will not have any new posts created
@@ -179,8 +179,8 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                     <th scope="row"><label for="prompt_type">Creation Type</label></th>
                     <td>
                         <select name="prompt_type" id="prompt_type">
-                        	<option value="standard:subject"<?php echo $action === 'edit' && $project->prompt_type == 'standard:subject' ? ' selected="selected"' : '' ?>>Subject</option>
-                        	<option value="standard:subject_topics"<?php echo $action === 'edit' && $project->prompt_type == 'standard:subject_topics' ? ' selected="selected"' : '' ?>>Subject & Topics</option>
+                            <option value="standard:subject"<?php echo $action === 'edit' && $project->prompt_type == 'standard:subject' ? ' selected="selected"' : '' ?>>Subject</option>
+                            <option value="standard:subject_topics"<?php echo $action === 'edit' && $project->prompt_type == 'standard:subject_topics' ? ' selected="selected"' : '' ?>>Subject & Topics</option>
                         </select>
                         <p class="description" id="prompt_type-description">
                             This setting decides how we prompt the AI engine to create articles, 'Subject' will generate articles for a broad niche whilst 'Subject & Topics' allows you to generate more specific content
@@ -210,8 +210,8 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                     <th scope="row"><label for="post_type">Post Type</label></th>
                     <td>
                         <select name="post_type" id="post_type">
-                        	<option value="publish"<?php echo $action === 'edit' && $project->post_type == 'publish' ? ' selected="selected"' : '' ?>>Publish</option>
-                        	<option value="draft"<?php echo $action === 'edit' && $project->post_type == 'draft' ? ' selected="selected"' : '' ?>>Draft</option>
+                            <option value="publish"<?php echo $action === 'edit' && $project->post_type == 'publish' ? ' selected="selected"' : '' ?>>Publish</option>
+                            <option value="draft"<?php echo $action === 'edit' && $project->post_type == 'draft' ? ' selected="selected"' : '' ?>>Draft</option>
                         </select>
                         <p class="description" id="active-description">
                             Setting to 'Publish' will make posts immediately public on your blog, select 'Draft' if you would like the option to review and manually approve articles
@@ -223,8 +223,8 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                     <th scope="row"><label for="interlinking">Interlinking</label></th>
                     <td>
                         <select name="interlinking" id="interlinking">
-                        	<option value="0"<?php echo $action === 'edit' && $project->interlinking == 0 ? ' selected="selected"' : '' ?>>Disabled</option>
-                        	<option value="1"<?php echo $action === 'edit' && $project->interlinking == 1 ? ' selected="selected"' : '' ?>>Enabled</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->interlinking == 0 ? ' selected="selected"' : '' ?>>Disabled</option>
+                            <option value="1"<?php echo $action === 'edit' && $project->interlinking == 1 ? ' selected="selected"' : '' ?>>Enabled</option>
                         </select>
                         <p class="description" id="interlinking-description">
                             Enabling interlinking will link from new posts to existing posts (made by the plugin) which use the same tag(s)
@@ -235,8 +235,8 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                     <th scope="row"><label for="interlinking_all_projects">Interlinking Targets</label></th>
                     <td>
                         <select name="interlinking_all_projects" id="interlinking_all_projects">
-                        	<option value="0"<?php echo $action === 'edit' && $project->interlinking_all_projects == 0 ? ' selected="selected"' : '' ?>>This Project Only</option>
-                        	<option value="1"<?php echo $action === 'edit' && $project->interlinking_all_projects == 1 ? ' selected="selected"' : '' ?>>All Projects</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->interlinking_all_projects == 0 ? ' selected="selected"' : '' ?>>This Project Only</option>
+                            <option value="1"<?php echo $action === 'edit' && $project->interlinking_all_projects == 1 ? ' selected="selected"' : '' ?>>All Projects</option>
                         </select>
                         <p class="description" id="interlinking_all_projects-description">
                             Select if you would like to link between posts made just in this project or across all projects
@@ -257,8 +257,8 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                     <th scope="row"><label for="target_linking">Target Linking</label></th>
                     <td>
                         <select name="target_linking" id="target_linking">
-                        	<option value="0"<?php echo $action === 'edit' && $project->target_linking == 0 ? ' selected="selected"' : '' ?>>Disabled</option>
-                        	<option value="1"<?php echo $action === 'edit' && $project->target_linking == 1 ? ' selected="selected"' : '' ?>>Enabled</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->target_linking == 0 ? ' selected="selected"' : '' ?>>Disabled</option>
+                            <option value="1"<?php echo $action === 'edit' && $project->target_linking == 1 ? ' selected="selected"' : '' ?>>Enabled</option>
                         </select>
                         <p class="description" id="target_linking-description">
                             Enable if you would like the plugin to insert outbound links to the URL(s) of your choice, enable this option

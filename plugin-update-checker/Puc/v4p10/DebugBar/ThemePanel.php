@@ -2,20 +2,20 @@
 
 if ( !class_exists('Puc_v4p10_DebugBar_ThemePanel', false) ):
 
-	class Puc_v4p10_DebugBar_ThemePanel extends Puc_v4p10_DebugBar_Panel {
-		/**
-		 * @var Puc_v4p10_Theme_UpdateChecker
-		 */
-		protected $updateChecker;
+    class Puc_v4p10_DebugBar_ThemePanel extends Puc_v4p10_DebugBar_Panel {
+        /**
+         * @var Puc_v4p10_Theme_UpdateChecker
+         */
+        protected $updateChecker;
 
-		protected function displayConfigHeader() {
-			$this->row('Theme directory', htmlentities($this->updateChecker->directoryName));
-			parent::displayConfigHeader();
-		}
+        protected function displayConfigHeader() {
+            $this->row('Theme directory', htmlentities($this->updateChecker->directoryName));
+            parent::displayConfigHeader();
+        }
 
-		protected function getUpdateFields() {
-			return array_merge(parent::getUpdateFields(), array('details_url'));
-		}
-	}
+        protected function getUpdateFields() {
+            return array_merge(parent::getUpdateFields(), array('details_url'));
+        }
+    }
 
 endif;

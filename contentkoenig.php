@@ -1,5 +1,5 @@
 <?php
-define( 'PLUGIN_VERSION_uhbyqy', '1.0.35' );
+define( 'PLUGIN_VERSION_uhbyqy', '2024.01.11' );
 define( 'PLUGIN_SLUG_uhbyqy', 'contentkoenig' );
 define( 'PLUGIN_CLASS_uhbyqy', 'Contentkoenig' );
 define( 'PLUGIN_NAME_uhbyqy', 'Content König' );
@@ -8,7 +8,7 @@ define( 'PLUGIN_NAME_uhbyqy', 'Content König' );
  * Plugin Name:       Content König
  * Plugin URI:        https://contentkoenig.com
  * Description:       Content König erstellt und postet automatisch fertige Artikel mit künstlicher Intelligenz inkl. Bildern zu jedem Thema deiner Wahl
- * Version:           1.0.35
+ * Version:           2024.01.11
  * Author:            Torsten Jaeger
  * Author URI:        https://contentkoenig.com
  * License:           GPL-2.0+

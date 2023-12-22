@@ -85,7 +85,7 @@ class Contentkoenig_Updater {
 
     private function version_1_0_17_check(){
         $authorityLink = get_option($this->plugin_slug . '_authority_link');
-        return $authorityLink === false || $authorityLink === '' || is_null($authorityLink);
+        return $authorityLink === false;
     }
 
     private function version_1_0_25_check(){
@@ -94,8 +94,8 @@ class Contentkoenig_Updater {
     }
 
     private function version_1_0_32_check(){
-       $query = $this->wpdb->prepare( 'SHOW COLUMNS FROM ' . $this->projectsTableName . ' LIKE %s', 'rewrite' );
-       return is_null($this->wpdb->get_row( $query ));
+        $openaiApiLink = get_option($this->plugin_slug . '_openai_api_key');
+        return $openaiApiLink === false;
     }
 
     private function version_1_0_0(){
@@ -276,12 +276,6 @@ class Contentkoenig_Updater {
             return;
         }
 
-        $query = $this->wpdb->prepare( 'SHOW COLUMNS FROM ' . $this->projectsTableName . ' LIKE %s', 'rewrite' );
-        if ( is_null($this->wpdb->get_row( $query ) ) ) {
-            $sql = "ALTER TABLE $this->projectsTableName ADD COLUMN rewrite boolean DEFAULT false NOT NULL";
-            $this->wpdb->query($sql);
-        }
-
-        add_option($this->plugin_slug . '_rewriter_api_key', '');
+        add_option($this->plugin_slug . '_openai_api_key', '');
     }
 }

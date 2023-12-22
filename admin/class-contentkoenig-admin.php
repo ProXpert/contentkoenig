@@ -232,13 +232,25 @@ class Contentkoenig_Admin {
         wp_die();
     }
 
-    public function ajax_check_rewriter_key(){
-        $key = $_REQUEST['rewriter_api_key'];
-        $data = wp_remote_get("https://detectorbypass.com/v1/user/auth",[
+    public function ajax_check_openai_key(){
+        $key = $_REQUEST['openai_api_key'];
+        $data = wp_remote_post("https://api.openai.com/v1/chat/completions", [
             'headers' => [
                 'Content-Type' => 'application/json; charset=utf-8',
-                'API_KEY' => $key
+                'Authorization' => "Bearer $key"
             ],
+            'body' => json_encode([
+                'model' => 'gpt-3.5-turbo',
+                'messages' => [
+                    [
+                        'role' => 'user',
+                        'content' => '',
+                    ],
+                ],
+                'max_tokens' => 1,
+            ]),
+            'method' => 'POST',
+            'data_format' => 'body',
             'timeout' => 15,
         ]);
         if ( is_wp_error($data) ) {
@@ -254,14 +266,14 @@ class Contentkoenig_Admin {
     }
 
     public function ajax_update_settings(){
-        add_option(PLUGIN_SLUG_uhbyqy . '_rewriter_api_key', '');
-        $rewriterApiKeyNew = trim($_POST['rewriterApiKey']);
-        $rewriterApiKeyOption = get_option(PLUGIN_SLUG_uhbyqy . '_rewriter_api_key');
+        add_option(PLUGIN_SLUG_uhbyqy . '_openai_api_key', '');
+        $openaiApiKeyNew = trim($_POST['openaiApiKey']);
+        $openaiApiKeyOption = get_option(PLUGIN_SLUG_uhbyqy . '_openai_api_key');
 
-        if($rewriterApiKeyOption === false){
-            add_option(PLUGIN_SLUG_uhbyqy . '_rewriter_api_key', $rewriterApiKeyNew);
+        if($openaiApiKeyOption === false){
+            add_option(PLUGIN_SLUG_uhbyqy . '_openai_api_key', $openaiApiKeyNew);
         }else{
-            update_option(PLUGIN_SLUG_uhbyqy . '_rewriter_api_key', $rewriterApiKeyNew);
+            update_option(PLUGIN_SLUG_uhbyqy . '_openai_api_key', $openaiApiKeyNew);
         }
 
         wp_die();
@@ -289,7 +301,6 @@ class Contentkoenig_Admin {
         $target_linking = $_POST['target_linking'];
         $target_linking_targets = isset($_POST['target_linking_targets']) ? json_encode($_POST['target_linking_targets']) : '[]';
         $target_linking_percentage = $_POST['target_linking_percentage'];
-        $rewrite = $_POST['rewrite'];
 
         $class = PLUGIN_CLASS_uhbyqy . '_Project';
         $project = new $class(intval($id));
@@ -315,7 +326,6 @@ class Contentkoenig_Admin {
             'target_linking' => $target_linking,
             'target_linking_targets' => $target_linking_targets,
             'target_linking_percentage' => $target_linking_percentage,
-            'rewrite' => $rewrite,
         ];
 
         $getNextPostDate = $project->update($data);
@@ -351,7 +361,6 @@ class Contentkoenig_Admin {
         $target_linking = $_POST['target_linking'];
         $target_linking_targets = isset($_POST['target_linking_targets']) ? json_encode($_POST['target_linking_targets']) : '[]';
         $target_linking_percentage = $_POST['target_linking_percentage'];
-        $rewrite = $_POST['rewrite'];
 
         $id = $this->projects->add([
             'name' => $name,
@@ -376,7 +385,6 @@ class Contentkoenig_Admin {
             'target_linking' => $target_linking,
             'target_linking_targets' => $target_linking_targets,
             'target_linking_percentage' => $target_linking_percentage,
-            'rewrite' => $rewrite,
         ]);
 
         $class = PLUGIN_CLASS_uhbyqy . '_Project';

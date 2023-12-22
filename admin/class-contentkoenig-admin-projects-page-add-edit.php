@@ -38,9 +38,6 @@ if(is_null($authority_link) || $authority_link === '' || !$authority_link){
 }else{
     $authority_link = true;
 }
-
-$rewriter_key = get_option(PLUGIN_SLUG_uhbyqy . '_rewriter_api_key');
-$rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
 ?>
 <div id="authority_link_modal" class="modal" style="max-width: 50%; width: 50%; z-index: 999999;">
     <h2><?php esc_html_e( 'Find Authority Links', PLUGIN_SLUG_uhbyqy ); ?></h2>
@@ -320,24 +317,6 @@ $rewriter_key_added = $rewriter_key !== false && $rewriter_key !== '';
                        </ul>
                         <p class="description" id="categories-description">
                             <?php esc_html_e( 'Select which categories posts should be assigned to. If none are selected posts will be made uncategorized', PLUGIN_SLUG_uhbyqy ); ?>
-                        </p>
-                    </td>
-                </tr>
-                <tr><td colspan="2" style="padding: 0;"><hr /></td></tr>
-                <?php if(!$rewriter_key_added){ ?>
-                <tr><td></td><td style="padding: 0; text-align:center;">
-                    <strong>Enter your rewriter API key on the <a href="<?php echo $settings_url; ?>">settings page</a> to enable these options.</strong>
-                </td></tr>
-                <?php } ?>
-                <tr>
-                    <th scope="row"><label for="rewrite"><?php echo esc_html_x( 'Rewrite', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
-                    <td>
-                        <select name="rewrite" id="rewrite" <?php if(!$rewriter_key_added){echo "disabled";} ?>>
-                            <option value="0"<?php echo $action === 'edit' && $project->rewrite == 0 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Disabled', PLUGIN_SLUG_uhbyqy ); ?></option>
-                            <option value="1"<?php echo $action === 'edit' && $project->rewrite == 1 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Enabled', PLUGIN_SLUG_uhbyqy ); ?></option>
-                        </select>
-                        <p class="description" id="rewrite-description">
-                            <?php _e( 'Enable if you would like posts to be rewritten to bypass AI content detection. <strong>Note: </strong> If this option is enabled then there is no need for a separate rewriting plugin as this would lead to content being rewritten twice.', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
@@ -708,7 +687,6 @@ jQuery(document).ready(function($) {
             const target_linking = $('#target_linking').val().trim();
             const target_linking_targets = getTargetLinks();
             const target_linking_percentage = TARGET_LINKING_PERCENTAGE;
-            const rewrite = $('#rewrite').val().trim();
 
             $('#projectForm input, #projectForm select').prop('disabled', true);
 
@@ -734,7 +712,6 @@ jQuery(document).ready(function($) {
                 target_linking,
                 target_linking_targets,
                 target_linking_percentage,
-                rewrite,
             }, function(response) {
                 $('#projectForm input, #projectForm select').prop('disabled', false)
 

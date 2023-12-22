@@ -6,11 +6,11 @@
         <?php wp_nonce_field( PLUGIN_SLUG_uhbyqy . '-settings-submit', PLUGIN_SLUG_uhbyqy . '-settings-submit' ); ?>
             <tbody>
                 <tr>
-                    <th scope="row"><label for="name"><?php esc_html_e( 'Rewriter API Key', PLUGIN_SLUG_uhbyqy ); ?></label></th>
+                    <th scope="row"><label for="name"><?php esc_html_e( 'OpenAI API Key', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
-                        <input name="rewriter_api_key" type="text" id="rewriter_api_key" value="<?php echo get_option(PLUGIN_SLUG_uhbyqy . '_rewriter_api_key', ''); ?>" class="regular-text">
-                        <p class="description" id="rewriter_api_key-description">
-                            <?php esc_html_e( 'Enter your Rewriter API key to enable automatic AI detection rewriting for your projects.', PLUGIN_SLUG_uhbyqy ); ?>
+                        <input name="openai_api_key" type="text" id="openai_api_key" value="<?php echo get_option(PLUGIN_SLUG_uhbyqy . '_openai_api_key', ''); ?>" class="regular-text">
+                        <p class="description" id="openai_api_key-description">
+                            <?php esc_html_e( 'Enter your OpenAI API key.', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
@@ -25,20 +25,20 @@ jQuery(document).ready(function($) {
 const fv = <?php echo PLUGIN_SLUG_uhbyqy; ?>.setupFormValidation(
         'settingsForm',
         {
-            rewriter_api_key: {
+            openai_api_key: {
                 validators: {
                     stringLength: {
-                        min: 24,
-                        max: 24,
+                        min: 51,
+                        max: 51,
                         trim: true,
-                        message: 'Rewriter API keys should be 24 characters in length',
+                        message: 'OpenAI API keys should be 51 characters in length',
                     },
                     remote: {
                         message: 'Error checking API key',
                         method: 'POST',
                         url: ajaxurl,
                         data: {
-                            action: 'check_rewriter_key_uhbyqy'
+                            action: 'check_openai_key_uhbyqy'
                         }
                     },
                 }
@@ -46,11 +46,11 @@ const fv = <?php echo PLUGIN_SLUG_uhbyqy; ?>.setupFormValidation(
         },
         () => {
             $('#settingsForm input, #settingsForm select').prop('disabled', true);
-            const rewriterApiKey = $('#rewriter_api_key').val().trim();
+            const openaiApiKey = $('#openai_api_key').val().trim();
 
             jQuery.post(ajaxurl, {
                 action: 'update_settings_uhbyqy',
-                rewriterApiKey,
+                openaiApiKey,
             }, function(response) {
                 $('#settingsForm input, #settingsForm select').prop('disabled', false)
 

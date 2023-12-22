@@ -56,7 +56,7 @@ class Contentkoenig {
 
         $this->loader->add_action( 'wp_ajax_save_licence_key_uhbyqy', $this->admin, 'ajax_save_licence_key' );
         $this->loader->add_action( 'wp_ajax_update_settings_uhbyqy', $this->admin, 'ajax_update_settings' );
-        $this->loader->add_action( 'wp_ajax_check_rewriter_key_uhbyqy', $this->admin, 'ajax_check_rewriter_key' );
+        $this->loader->add_action( 'wp_ajax_check_openai_key_uhbyqy', $this->admin, 'ajax_check_openai_key' );
         $this->loader->add_action( 'wp_ajax_update_project_uhbyqy', $this->admin, 'ajax_update_project' );
         $this->loader->add_action( 'wp_ajax_add_project_uhbyqy', $this->admin, 'ajax_add_project' );
         $this->loader->add_action( 'wp_ajax_authority_links_uhbyqy', $this->admin, 'ajax_authority_links' );

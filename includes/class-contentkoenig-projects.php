@@ -47,7 +47,7 @@ class Contentkoenig_Projects {
     }
 
     public function add($data){
-        $allowed  = ['name', 'language', 'next_post', 'posts_made', 'max_posts_per_day', 'max_posts_total', 'post_days', 'status', 'post_type', 'active', 'authors', 'categories', 'prompt_type', 'subject', 'topics', 'post_time_start', 'post_time_end', 'interlinking', 'interlinking_all_projects', 'interlinking_count', 'target_linking', 'target_linking_targets', 'target_linking_percentage', 'rewrite'];
+        $allowed  = ['name', 'language', 'next_post', 'posts_made', 'max_posts_per_day', 'max_posts_total', 'post_days', 'status', 'post_type', 'active', 'authors', 'categories', 'prompt_type', 'subject', 'topics', 'post_time_start', 'post_time_end', 'interlinking', 'interlinking_all_projects', 'interlinking_count', 'target_linking', 'target_linking_targets', 'target_linking_percentage'];
 
         $filtered = array_filter(
             $data,

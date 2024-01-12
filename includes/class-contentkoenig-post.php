@@ -85,7 +85,7 @@ class Contentkoenig_Post {
         libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $dom->encoding = 'utf-8';
-        $temp_body = htmlspecialchars_decode( htmlentities( html_entity_decode( $receivedData['article']['body'] ) ) );
+        $temp_body = $receivedData['article']['body'];
         $dom->loadHTML($temp_body);
 
         $images = $dom->getElementsByTagName('img');

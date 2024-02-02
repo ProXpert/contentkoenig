@@ -5,7 +5,7 @@ global $wpdb;
 class Contentkoenig_Post {
     private $posts;
     private $wpdb;
-    private $wpdbPrefix ;
+    private $wpdbPrefix;
     private $postsTableName;
     public $post;
 
@@ -321,7 +321,7 @@ class Contentkoenig_Post {
         $x = new DOMXPath($dom);
         $t = $x->evaluate("//text()");
 
-        $pregFind = '/\b(' . $anchor . ')\b/i';
+        $pregFind = '/\b(' . preg_quote($anchor) . ')\b/i';
 
         $sectionMatchesCount = 0;
 
@@ -331,7 +331,7 @@ class Contentkoenig_Post {
                 continue;
             }
 
-            $sections = preg_split( $pregFind, $textNode->nodeValue, null, PREG_SPLIT_DELIM_CAPTURE);
+            $sections = preg_split( $pregFind, $textNode->nodeValue, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 
             $sectionMatches = array_filter($sections, function($section) use ($anchor) {
                 return strtolower($section) === $anchor;
@@ -357,7 +357,7 @@ class Contentkoenig_Post {
                 continue;
             }
 
-            $sections = preg_split( $pregFind, $textNode->nodeValue, null, PREG_SPLIT_DELIM_CAPTURE);
+            $sections = preg_split( $pregFind, $textNode->nodeValue, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 
             $parentNode = $textNode->parentNode;
 
@@ -416,9 +416,9 @@ class Contentkoenig_Post {
                     continue;
                 }
 
-                $pregFind = '/\b(' . $tag . ')\b/i';
+                $pregFind = '/\b(' . preg_quote($tag) . ')\b/i';
 
-                $sections = preg_split( $pregFind, $textNode->nodeValue, null, PREG_SPLIT_DELIM_CAPTURE);
+                $sections = preg_split( $pregFind, $textNode->nodeValue, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 
                 $parentNode = $textNode->parentNode;
 

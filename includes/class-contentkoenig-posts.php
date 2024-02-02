@@ -4,7 +4,7 @@ global $wpdb;
 
 class Contentkoenig_Posts {
     private $wpdb;
-    private $wpdbPrefix ;
+    private $wpdbPrefix;
     private $postsTableName;
 
     public function __construct() {

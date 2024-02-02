@@ -5,6 +5,9 @@ class Contentkoenig_Public {
     private $plugin_name;
     private $version;
     private $shared;
+    private $projects;
+    private $posts;
+    private $api;
 
     public function __construct( $plugin_name, $version ) {
         $this->plugin_name = $plugin_name;

@@ -7,7 +7,7 @@ class Contentkoenig_Project {
     private $projects;
     private $posts;
     private $wpdb;
-    private $wpdbPrefix ;
+    private $wpdbPrefix;
     private $postsTableName;
     private $projectsTableName;
     private $debug = false;

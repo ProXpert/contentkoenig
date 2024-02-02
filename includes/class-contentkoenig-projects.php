@@ -4,7 +4,7 @@ global $wpdb;
 
 class Contentkoenig_Projects {
     private $wpdb;
-    private $wpdbPrefix ;
+    private $wpdbPrefix;
     private $projectsTableName;
     private $postsTableName;
 

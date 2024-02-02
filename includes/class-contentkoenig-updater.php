@@ -8,8 +8,10 @@ class Contentkoenig_Updater {
     private $existing_version;
     private $plugin_slug;
     private $wpdb;
-    private $wpdbPrefix ;
-    private $charsetCollate ;
+    private $wpdbPrefix;
+    private $charsetCollate;
+    private $projectsTableName;
+    private $postsTableName;
 
     public function __construct($plugin_version, $existing_version, $plugin_slug) {
         $this->plugin_version = $plugin_version;
@@ -42,6 +44,7 @@ class Contentkoenig_Updater {
         $this->version_1_0_17();
         $this->version_1_0_25();
         $this->version_1_0_32();
+        $this->version_2024_02_01();
 
         //wp_cache_delete ( 'alloptions', 'options' );
         update_option($this->plugin_slug . '_version', $this->plugin_version);
@@ -96,6 +99,10 @@ class Contentkoenig_Updater {
     private function version_1_0_32_check(){
         $openaiApiLink = get_option($this->plugin_slug . '_openai_api_key');
         return $openaiApiLink === false;
+    }
+
+    private function version_2024_02_01_check(){
+       return version_compare($this->existing_version, '2024.02.01') < 0;
     }
 
     private function version_1_0_0(){
@@ -277,5 +284,14 @@ class Contentkoenig_Updater {
         }
 
         add_option($this->plugin_slug . '_openai_api_key', '');
+    }
+
+    private function version_2024_02_01(){
+        if(!$this->version_2024_02_01_check()){
+            return;
+        }
+
+        $sql = "ALTER TABLE $this->postsTableName CHANGE COLUMN body body LONGTEXT DEFAULT NULL";
+        $this->wpdb->query($sql);
     }
 }

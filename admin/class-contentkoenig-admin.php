@@ -6,6 +6,9 @@ class Contentkoenig_Admin {
 
     private $plugin_name;
     private $version;
+    private $shared;
+    private $projects;
+    private $api;
 
     public function __construct( $plugin_name, $version ) {
         $this->plugin_name = $plugin_name;
@@ -330,7 +333,7 @@ class Contentkoenig_Admin {
 
         $getNextPostDate = $project->update($data);
 
-        if($getNewPostDate){
+        if($getNextPostDate){
             //instantiate this instance again in case data has changed
             $class = PLUGIN_CLASS_uhbyqy . '_Project';
             $project = new $class(intval($id));

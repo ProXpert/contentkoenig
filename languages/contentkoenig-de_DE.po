@@ -139,6 +139,7 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: admin/class-contentkoenig-admin-posts-list-table.php:158
+#: admin/class-contentkoenig-admin-projects-list-table.php:192
 msgctxt "status"
 msgid "Not active"
 msgstr "Nicht aktiv"
@@ -256,6 +257,14 @@ msgstr "Der Name, der verwendet wird, um auf dieses Projekt innerhalb von Wordpr
 
 #: admin/class-contentkoenig-admin-projects-page-add-edit.php:80
 msgctxt "Row label"
+msgid "Active"
+msgstr "Aktiv"
+
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:83
+msgid "Inactive"
+msgstr "Inaktiv"
+
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:84
 msgid "Active"
 msgstr "Aktiv"
 
@@ -401,6 +410,16 @@ msgctxt "Row label"
 msgid "Interlinking"
 msgstr "Verlinkung"
 
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:223
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:257
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:224
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:258
+msgid "Enabled"
+msgstr "Aktiviert"
+
 #: admin/class-contentkoenig-admin-projects-page-add-edit.php:227
 msgid "Enabling interlinking will link from new posts to existing posts (made by the plugin) which use the same tag(s)"
 msgstr "Das Aktivieren der Verlinkung wird von neuen Beiträgen zu bestehenden Beiträgen (erstellt durch das Plugin) verlinken, die dieselben Tag(s) verwenden"
@@ -435,14 +454,6 @@ msgstr "Die Anzahl der Links, die das Plugin in jedem Beitrag zu erstellen versu
 msgctxt "Row label"
 msgid "Target Linking"
 msgstr "Zielverlinkung"
-
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:257
-msgid "Disabled"
-msgstr "Deaktiviert"
-
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:258
-msgid "Enabled"
-msgstr "Aktiviert"
 
 #: admin/class-contentkoenig-admin-projects-page-add-edit.php:261
 msgid "Enable if you would like the plugin to insert outbound links to the URL(s) of your choice, enable this option"
@@ -484,6 +495,11 @@ msgstr "Kategorien"
 msgid "Select which categories posts should be assigned to. If none are selected posts will be made uncategorized"
 msgstr "Wähle aus, welchen Kategorien Beiträge zugeordnet werden sollen. Wenn keine ausgewählt sind, werden Beiträge ohne Kategorie erstellt"
 
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:325
+#: admin/class-contentkoenig-admin-settings-page.php:19
+msgid "Save Changes"
+msgstr ""
+
 #: admin/class-contentkoenig-admin-projects-page-index.php:8
 msgctxt "heading"
 msgid "%s Projects"
@@ -505,10 +521,6 @@ msgstr "OpenAI API-Schlüssel"
 #: admin/class-contentkoenig-admin-settings-page.php:13
 msgid "Enter your OpenAI API key."
 msgstr "Gib deinen OpenAI API-Schlüssel ein."
-
-#: admin/class-contentkoenig-admin-settings-page.php:19
-msgid "Save Changes"
-msgstr "Änderungen speichern"
 
 #: admin/class-contentkoenig-admin.php:78
 msgctxt "Admin notice"

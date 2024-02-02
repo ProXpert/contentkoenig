@@ -189,7 +189,7 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
 
         $status = '<small class="subtext">';
         if($item['active'] == 0){
-            $status .= 'Not active';
+            $status .= _x( 'Not active', 'status', PLUGIN_SLUG_uhbyqy );
         }else{
             switch($item['status'] ){
                 case 'starting':

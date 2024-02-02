@@ -80,8 +80,8 @@ if(is_null($authority_link) || $authority_link === '' || !$authority_link){
                     <th scope="row"><label for="active"><?php echo esc_html_x( 'Active', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="active" id="active">
-                            <option value="0"<?php echo $action === 'edit' && $project->active == 0 ? ' selected="selected"' : '' ?>>Inactive</option>
-                            <option value="1"<?php echo $action === 'edit' && $project->active == 1 ? ' selected="selected"' : '' ?>>Active</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->active == 0 ? ' selected="selected"' : '' ?>><?php echo esc_html_e( 'Inactive', PLUGIN_SLUG_uhbyqy ); ?></option>
+                            <option value="1"<?php echo $action === 'edit' && $project->active == 1 ? ' selected="selected"' : '' ?>><?php echo esc_html_e( 'Active', PLUGIN_SLUG_uhbyqy ); ?></option>
                         </select>
                         <p class="description" id="active-description">
                             <?php esc_html_e( 'Set this project to active or inactive. An inactive project will not have any new posts created', PLUGIN_SLUG_uhbyqy ); ?>
@@ -220,8 +220,8 @@ if(is_null($authority_link) || $authority_link === '' || !$authority_link){
                     <th scope="row"><label for="interlinking"><?php echo esc_html_x( 'Interlinking', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
                     <td>
                         <select name="interlinking" id="interlinking">
-                            <option value="0"<?php echo $action === 'edit' && $project->interlinking == 0 ? ' selected="selected"' : '' ?>>Disabled</option>
-                            <option value="1"<?php echo $action === 'edit' && $project->interlinking == 1 ? ' selected="selected"' : '' ?>>Enabled</option>
+                            <option value="0"<?php echo $action === 'edit' && $project->interlinking == 0 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Disabled', PLUGIN_SLUG_uhbyqy ); ?></option>
+                            <option value="1"<?php echo $action === 'edit' && $project->interlinking == 1 ? ' selected="selected"' : '' ?>><?php esc_html_e( 'Enabled', PLUGIN_SLUG_uhbyqy ); ?></option>
                         </select>
                         <p class="description" id="interlinking-description">
                             <?php esc_html_e( 'Enabling interlinking will link from new posts to existing posts (made by the plugin) which use the same tag(s)', PLUGIN_SLUG_uhbyqy ); ?>
@@ -322,7 +322,7 @@ if(is_null($authority_link) || $authority_link === '' || !$authority_link){
                 </tr>
             </tbody>
         </table>
-        <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes"></p>
+        <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_html_e( 'Save Changes', PLUGIN_SLUG_uhbyqy ); ?>"></p>
     </form>
 </div>
 <script type="text/javascript" >

@@ -269,27 +269,16 @@ class Contentkoenig_Post {
         return $postBody;
     }
 
-    public function addTargetLinks($targets = [], $targetsToAdd = 1){
-        $targetsAdded = 0;
-
+    public function addTargetLinks($targets = [], $targetLinkingPercentage = 100) {
         $postBody = $this->body;
-
-        shuffle($targets);
 
         if(count($targets) <= 0){
             return $postBody;
         }
 
-        if($targetsToAdd >= count($targets)){
-            //do nothing, use all targets
-        }else{
-            $targets = array_splice($targets, 0, $targetsToAdd);
-        }
-
         foreach($targets as $target){
-            if($targetsAdded >= $targetsToAdd){
-                //added all the links required
-                return $postBody;
+            if (rand(0, 99) >= $targetLinkingPercentage) {
+                continue;
             }
 
             $targetUrl = $target['url'];
@@ -300,8 +289,7 @@ class Contentkoenig_Post {
                 $addLink = $this->addLink($postBody, $targetKeyword, $targetUrl);
 
                 if($addLink['added']){
-                    //increment added counter and break out of keyword loop because link was added successfully
-                    $targetsAdded++;
+                    //break out of keyword loop because link was added successfully
                     $postBody = $addLink['body'];
                     break;
                 }

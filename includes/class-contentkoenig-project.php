@@ -355,19 +355,17 @@ class Contentkoenig_Project {
             return;
         }
 
-        if(rand(0, 100) <= $targetLinkingPercentage){
-            $targets = $this->target_linking_targets;
+        $targets = $this->target_linking_targets;
 
-            if(count($targets) <= 0){
-                return;
-            }
-
-            $interlinkedBody = $post->addTargetLinks($targets, 1);
-            $post->update(['body' => $interlinkedBody]);
-            wp_update_post([
-                'ID' => $post->wp_post_id,
-                'post_content' => $interlinkedBody
-            ]);
+        if (count($targets) <= 0) {
+            return;
         }
+
+        $interlinkedBody = $post->addTargetLinks($targets, $targetLinkingPercentage);
+        $post->update(['body' => $interlinkedBody]);
+        wp_update_post([
+            'ID' => $post->wp_post_id,
+            'post_content' => $interlinkedBody
+        ]);
     }
 }

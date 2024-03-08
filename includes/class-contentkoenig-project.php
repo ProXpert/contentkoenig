@@ -222,7 +222,9 @@ class Contentkoenig_Project {
         $timeMinutes = $startRange->diffInMinutes($endRange);
         $postsToMake = intval($this->project->max_posts_per_day) - $postsInDay;
 
-        $nextPostMinutes = -log(rand() / getrandmax()) * $timeMinutes / $postsToMake;
+        // Beta(1, n) ~ Minimum of n independent rvs. with U(0, 1) with density n(1 − x)n−1 on that interval.
+        $beta = (1.0 - pow(rand() / getrandmax(), 1.0 / $postsToMake));
+        $nextPostMinutes = $beta * $timeMinutes;
         $nextPost = $startRange->copy()->addMinutes($nextPostMinutes);
 
         return $nextPost->setTimezone('UTC')->toDateTimeString();

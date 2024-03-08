@@ -46,7 +46,7 @@ class Contentkoenig_Admin_Posts_List_Table extends WP_List_Table
         switch ( $column_name ) {
             case 'time':
                 $format = get_option('date_format') . ' ' . get_option('time_format');
-                return Carbon::parse($item[$column_name])->setTimezone(wp_timezone())->format($format);
+                return Carbon::parse($item[$column_name], wp_timezone())->format($format);
                 break;
             case 'project':
                 return $item['project_name'];

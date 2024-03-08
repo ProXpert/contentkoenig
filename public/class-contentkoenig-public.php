@@ -89,7 +89,7 @@ class Contentkoenig_Public {
             $class = PLUGIN_CLASS_uhbyqy . '_Project';
             $project = new $class($post->project_id);
 
-            $postingDay = $project->nextPostDay(Carbon::now('UTC')->setTimezone(wp_timezone())->addDay());
+            $postingDay = $project->nextPostDay(Carbon::now(wp_timezone())->addDay());
 
             $this->posts->delete($post->id);
 

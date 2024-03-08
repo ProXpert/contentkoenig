@@ -49,7 +49,7 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
                 break;
             case 'next_post':
                 $format = get_option('date_format') . ' ' . get_option('time_format');
-                return $item['active'] == 0 ? '-' :Carbon::parse($item[$column_name])->setTimezone(wp_timezone())->format($format);
+                return $item['active'] == 0 ? '-' : Carbon::parse($item[$column_name], wp_timezone())->format($format);
                 break;
             case 'schedule':
                 $item['post_days'] = !is_null($item['post_days']) ? json_decode($item['post_days']) : ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
@@ -285,7 +285,7 @@ class Contentkoenig_Admin_Projects_List_Table extends WP_List_Table
                 $project = new $class(intval($id));
 
                 $project->update([
-                    'next_post' => Carbon::now('UTC')->toDateTimeString()
+                    'next_post' => Carbon::now(wp_timezone())->toDateTimeString()
                 ]);
             }
         }

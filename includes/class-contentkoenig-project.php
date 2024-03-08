@@ -109,14 +109,14 @@ class Contentkoenig_Project {
     }
 
     public function postsToday(){
-        $startOfDay = Carbon::now('UTC')->setTimezone(wp_timezone())->startOfDay()->toDateTimeString();
-        $endOfDay = Carbon::now('UTC')->setTimezone(wp_timezone())->endOfDay()->toDateTimeString();
+        $startOfDay = Carbon::now(wp_timezone())->startOfDay()->toDateTimeString();
+        $endOfDay = Carbon::now(wp_timezone())->endOfDay()->toDateTimeString();
 
         return $this->postsRange($startOfDay, $endOfDay);
     }
 
     public function isPostingDay(){
-        $now = Carbon::now('UTC')->setTimezone(wp_timezone());
+        $now = Carbon::now(wp_timezone());
 
         foreach ($this->post_days as $postDay) {
             if($now->is($postDay)){
@@ -133,16 +133,16 @@ class Contentkoenig_Project {
             return true;
         }
 
-        $now = Carbon::now('UTC')->setTimezone(wp_timezone());
-        $postTimeStart = Carbon::now('UTC')->setTimezone(wp_timezone())->startOfDay()->addMinutes($this->project->post_time_start);
-        $postTimeEnd = Carbon::now('UTC')->setTimezone(wp_timezone())->startOfDay()->addMinutes($this->project->post_time_end);
+        $now = Carbon::now(wp_timezone());
+        $postTimeStart = Carbon::now(wp_timezone())->startOfDay()->addMinutes($this->project->post_time_start);
+        $postTimeEnd = Carbon::now(wp_timezone())->startOfDay()->addMinutes($this->project->post_time_end);
 
         return $now->greaterThanOrEqualTo($postTimeStart) && $now->lessThanOrEqualTo($postTimeEnd);
     }
 
     public function nextPostDay($now = null){
         if(is_null($now)){
-            $now = Carbon::now('UTC')->setTimezone(wp_timezone());
+            $now = Carbon::now(wp_timezone());
         }
 
         $postDays = $this->post_days;
@@ -172,7 +172,7 @@ class Contentkoenig_Project {
     public function nextPostDate(){
         //see if we are on a posting day
         if($this->isPostingDay()){
-            $postingDay = Carbon::now('UTC')->setTimezone(wp_timezone());
+            $postingDay = Carbon::now(wp_timezone());
 
             //find number of posts made in that day
             $postsInDay = count($this->postsRange($postingDay->copy()->startOfDay()->toDateTimeString(), $postingDay->copy()->endOfDay()->toDateTimeString()));
@@ -185,13 +185,13 @@ class Contentkoenig_Project {
 
                 //start of available range is now
                 if($this->isPostingTime()){
-                    $startRange = Carbon::now('UTC')->setTimezone(wp_timezone());
+                    $startRange = Carbon::now(wp_timezone());
                 }else{
-                    $now = Carbon::now('UTC')->setTimezone(wp_timezone());
-                    $postTimeStart = Carbon::now('UTC')->setTimezone(wp_timezone())->startOfDay()->addMinutes($this->project->post_time_start);
+                    $now = Carbon::now(wp_timezone());
+                    $postTimeStart = Carbon::now(wp_timezone())->startOfDay()->addMinutes($this->project->post_time_start);
 
-                    if($now->lessThan($post_time_start)){
-                        $startRange = Carbon::now('UTC')->setTimezone(wp_timezone())->startOfDay()->addMinutes($this->project->post_time_start);
+                    if ($now->lessThan($postTimeStart)) {
+                        $startRange = $postTimeStart;
                     }else{
                         $getNextPostingDay = true;
                     }
@@ -202,7 +202,7 @@ class Contentkoenig_Project {
         }
 
         if($getNextPostingDay){
-            $postingDay = $this->nextPostDay(Carbon::now('UTC')->setTimezone(wp_timezone())->addDay());
+            $postingDay = $this->nextPostDay(Carbon::now(wp_timezone())->addDay());
 
             if(!is_null($this->project->post_time_start) && !is_null($this->project->post_time_end)){
                 $startRange =  $postingDay->copy()->startOfDay()->addMinutes($this->project->post_time_start);
@@ -227,7 +227,7 @@ class Contentkoenig_Project {
         $nextPostMinutes = $beta * $timeMinutes;
         $nextPost = $startRange->copy()->addMinutes($nextPostMinutes);
 
-        return $nextPost->setTimezone('UTC')->toDateTimeString();
+        return $nextPost->toDateTimeString();
     }
 
     public function initPost(){
@@ -278,7 +278,7 @@ class Contentkoenig_Project {
         if($response['error'] === true){
             if($response['response']['desc'] == 'post_limit_met'){
                //posts in last day has met or exceeded the limit, try again on next posting day
-               $postingDay = $this->nextPostDay(Carbon::now('UTC')->setTimezone(wp_timezone())->addDay());
+               $postingDay = $this->nextPostDay(Carbon::now(wp_timezone())->addDay());
 
                if($postingDay === false){
                     //shouldn't happen but if it does, pause project

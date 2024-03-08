@@ -53,7 +53,7 @@ class Contentkoenig_Post {
 
         if($receivedData['status'] === 'article_create_error' || $receivedData['article']['status'] === 'error'){
             //there was an error creating this article. Delete this post and set project status so it is tried again next post day
-            $postingDay = $project->nextPostDay(Carbon::now('UTC')->setTimezone(wp_timezone())->addDay());
+            $postingDay = $project->nextPostDay(Carbon::now(wp_timezone())->addDay());
 
             $this->posts->delete($this->id);
 
@@ -141,7 +141,7 @@ class Contentkoenig_Post {
 
         if ( is_wp_error( $insert_post ) ) {
             //some kind of error making this post so try again next post day
-            $postingDay = $project->nextPostDay(Carbon::now('UTC')->setTimezone(wp_timezone())->addDay());
+            $postingDay = $project->nextPostDay(Carbon::now(wp_timezone())->addDay());
 
             $this->posts->delete($this->id);
 

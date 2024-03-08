@@ -38,7 +38,7 @@ class Contentkoenig_Posts {
 
     public function toClear(){
         //posts that were started 30 minutes ago or more are broken
-        $from = Carbon::now('UTC')->setTimezone(wp_timezone())->subMinutes(30)->toDateTimeString();
+        $from = Carbon::now(wp_timezone())->subMinutes(30)->toDateTimeString();
 
         return $this->wpdb->get_results(
            $this->wpdb->prepare("SELECT * FROM {$this->postsTableName} WHERE got_data = %d AND posted = %d AND time <= %s", 0, 0, $from)

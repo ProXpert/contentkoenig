@@ -23,7 +23,7 @@ class Contentkoenig_Projects {
     }
 
     public function toPost(){
-        $now = Carbon::now('UTC')->toDateTimeString();
+        $now = Carbon::now(wp_timezone())->toDateTimeString();
 
         return $this->wpdb->get_results(
            $this->wpdb->prepare("SELECT * FROM {$this->projectsTableName} WHERE next_post <= %s AND status=%s AND active=%d", $now, 'idle', 1)

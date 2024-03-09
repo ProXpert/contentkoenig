@@ -446,7 +446,7 @@ jQuery(document).ready(function($) {
     showHideSubjectType();
     showHideInterlinking();
 
-    for(const targetLink of JSON.parse(`<?php echo $targetLinkingTargets; ?>`)){
+    for(const targetLink of JSON.parse(String.raw`<?php echo $targetLinkingTargets; ?>`)){
         addTargetLink(targetLink.url, targetLink.keywords)
     }
     showHideTargetLinking();

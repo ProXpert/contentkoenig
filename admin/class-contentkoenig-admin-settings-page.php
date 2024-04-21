@@ -29,9 +29,9 @@ const fv = <?php echo PLUGIN_SLUG_uhbyqy; ?>.setupFormValidation(
                 validators: {
                     stringLength: {
                         min: 51,
-                        max: 51,
+                        max: 56,
                         trim: true,
-                        message: 'OpenAI API keys should be 51 characters in length',
+                        message: 'OpenAI API keys should be between 51 and 56 characters in length',
                     },
                     remote: {
                         message: 'Error checking API key',

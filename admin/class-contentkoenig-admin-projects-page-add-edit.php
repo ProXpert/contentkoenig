@@ -15,10 +15,12 @@ $projectCategories = $action === 'edit' ? json_decode($project->categories) : []
 if($action === 'add'){
     $postDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
     $language = 'en';
+    $depth = 3;
     $targetLinkingTargets = json_encode([]);
 }else{
     $postDays = $project->post_days;
     $language = !is_null($project->language) ? $project->language : 'en';
+    $depth = !is_null($project->depth) ? $project->depth : 3;
     $targetLinkingTargets = json_encode($project->target_linking_targets);
 }
 
@@ -100,6 +102,20 @@ if(is_null($authority_link) || $authority_link === '' || !$authority_link){
                         </select>
                         <p class="description" id="language-description">
                             <?php esc_html_e( 'The language that posts will be made in', PLUGIN_SLUG_uhbyqy ); ?>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="depth"><?php echo esc_html_x( 'Depth', 'Row label', PLUGIN_SLUG_uhbyqy ); ?></label></th>
+                    <td>
+                        <input name="depth" type="range" id="depth" list="depths" min="1" max="3" step="1" value="<?php echo $action === 'edit' ? $project->depth : '3' ?>" />
+                        <datalist id="depths">
+                            <option value="1" label="1"></option>
+                            <option value="2" label="2"></option>
+                            <option value="3" label="3"></option>
+                        </datalist>
+                        <p class="description" id="depth-description">
+                            <?php esc_html_e( 'The depth that posts will go into', PLUGIN_SLUG_uhbyqy ); ?>
                         </p>
                     </td>
                 </tr>
@@ -665,6 +681,7 @@ jQuery(document).ready(function($) {
         () => {
             const name = $('#name').val().trim();
             const language = $('#language').val().trim();
+            const depth = $('#depth').val().trim();
             const max_posts_per_day = $('#max_posts_per_day').val().trim();
             const max_posts_total = $('#max_posts_total').val().trim();
             const post_days = $('.post_day:checked').map(function() {
@@ -695,6 +712,7 @@ jQuery(document).ready(function($) {
                 id: <?php echo $action == 'edit' ? $project->id : 'null' ?>,
                 name,
                 language,
+                depth,
                 max_posts_per_day,
                 max_posts_total,
                 post_days, post_type,

@@ -49,7 +49,7 @@ class Contentkoenig_Project {
     }
 
     public function update($data){
-        $allowed  = ['name', 'language', 'next_post', 'posts_made', 'max_posts_per_day', 'max_posts_total', 'post_days', 'status', 'post_type', 'active', 'authors', 'categories', 'prompt_type', 'subject', 'topics', 'post_time_start', 'post_time_end', 'interlinking', 'interlinking_all_projects', 'interlinking_count', 'target_linking', 'target_linking_targets', 'target_linking_percentage'];
+        $allowed  = ['name', 'language', 'depth', 'next_post', 'posts_made', 'max_posts_per_day', 'max_posts_total', 'post_days', 'status', 'post_type', 'active', 'authors', 'categories', 'prompt_type', 'subject', 'topics', 'post_time_start', 'post_time_end', 'interlinking', 'interlinking_all_projects', 'interlinking_count', 'target_linking', 'target_linking_targets', 'target_linking_percentage'];
 
         $filtered = array_filter(
             $data,
@@ -267,13 +267,14 @@ class Contentkoenig_Project {
         }
 
         $language = !is_null($this->project->language) ? $this->project->language : 'en';
+        $depth = !is_null($this->project->depth) ? $this->project->depth : 3;
 
         $openai_key = get_option(PLUGIN_SLUG_uhbyqy . '_openai_api_key');
         $openai_key_added = $openai_key !== false && $openai_key !== '';
 
         $openai_temp = $openai_key_added === true ? trim($openai_key) : null;
 
-        $response = $this->api->post($this->project->prompt_type, $prompt, $callbackUrl, $language, $openai_temp);
+        $response = $this->api->post($this->project->prompt_type, $prompt, $callbackUrl, $language, $depth, $openai_temp);
 
         if($response['error'] === true){
             if($response['response']['desc'] == 'post_limit_met'){

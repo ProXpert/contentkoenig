@@ -2,15 +2,15 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Content König 2024.03.01\n"
+"Project-Id-Version: Content König 2024.04.29\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/contentkoenig\n"
 "Last-Translator: VOLLSTÄNDIGER NAME <EMAIL@ADRESSE>\n"
 "Language-Team: DEUTSCH <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-03-01T00:00:00+00:00\n"
-"PO-Revision-Date: 2024-03-01 00:00+00\n"
+"POT-Creation-Date: 2024-04-29T00:00:00+00:00\n"
+"PO-Revision-Date: 2024-04-29 00:00+00\n"
 "X-Generator: WP-CLI 2.9.0\n"
 
 #. Plugin Name of the plugin
@@ -229,273 +229,282 @@ msgctxt "List table bulk action"
 msgid "Pause"
 msgstr "Pausieren"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:43
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:287
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:45
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:303
 msgid "Find Authority Links"
 msgstr "Autoritative Links finden"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:47
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:49
 msgid "Enter search query..."
 msgstr "Suchanfrage eingeben..."
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:50
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:52
 msgid "Search"
 msgstr "Suchen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:57
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:59
 msgid "Click the icon next to a link below to add it to your target links."
 msgstr "Klicke auf das Symbol neben einem Link unten, um ihn zu deinen Ziel-Links hinzuzufügen."
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:71
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:73
 msgctxt "Row label"
 msgid "Name"
 msgstr "Name"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:75
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:77
 msgid "The name used to refer to this project within Wordpress, use something easily identifiable to help you with managing %s"
 msgstr "Der Name, der verwendet wird, um auf dieses Projekt innerhalb von Wordpress zu verweisen. Verwende etwas leicht Identifizierbares, um dir bei der Verwaltung von %s zu helfen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:80
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:82
 msgctxt "Row label"
 msgid "Active"
 msgstr "Aktiv"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:83
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:85
 msgid "Inactive"
 msgstr "Inaktiv"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:84
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:86
 msgid "Active"
 msgstr "Aktiv"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:87
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:89
 msgid "Set this project to active or inactive. An inactive project will not have any new posts created"
 msgstr "Setze dieses Projekt auf aktiv oder inaktiv. Ein inaktives Projekt wird keine neuen Beiträge erstellen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:92
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:94
 msgctxt "Row label"
 msgid "Language"
 msgstr "Sprache"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:102
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:104
 msgid "The language that posts will be made in"
 msgstr "Die Sprache, in der die Beiträge verfasst werden"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:108
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:109
+msgctxt "Row label"
+msgid "Depth"
+msgstr "Tiefe"
+
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:118
+msgid "The depth that posts will go into"
+msgstr "Die Tiefe, in die die Beiträge gehen werden"
+
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:124
 msgctxt "Row label"
 msgid "Maximum Posts Total"
 msgstr "Maximale Anzahl Beiträge insgesamt"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:112
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:128
 msgid "The maximum number of posts to make total in this project"
 msgstr "Die maximale Anzahl von Beiträgen, die insgesamt in diesem Projekt erstellt werden sollen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:117
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:133
 msgctxt "Row label"
 msgid "Maximum Posts Per Day"
 msgstr "Maximale Anzahl Beiträge pro Tag"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:121
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:137
 msgid "The maximum number of posts to make per day in this project"
 msgstr "Die maximale Anzahl von Beiträgen, die pro Tag in diesem Projekt erstellt werden sollen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:128
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:144
 msgctxt "Row label"
 msgid "Post Days"
 msgstr "Veröffentlichungstage"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:132
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:148
 msgctxt "weekday"
 msgid "Monday"
 msgstr "Montag"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:136
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:152
 msgctxt "weekday"
 msgid "Tuesday"
 msgstr "Dienstag"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:140
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:156
 msgctxt "weekday"
 msgid "Wednesday"
 msgstr "Mittwoch"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:144
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:160
 msgctxt "weekday"
 msgid "Thursday"
 msgstr "Donnerstag"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:148
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:164
 msgctxt "weekday"
 msgid "Friday"
 msgstr "Freitag"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:152
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:168
 msgctxt "weekday"
 msgid "Saturday"
 msgstr "Samstag"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:156
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:172
 msgctxt "weekday"
 msgid "Sunday"
 msgstr "Sonntag"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:159
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:175
 msgctxt "weekday"
 msgid "Select the days that this project should post on"
 msgstr "Wähle die Tage aus, an denen dieses Projekt Beiträge veröffentlichen soll"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:165
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:181
 msgctxt "Row label"
 msgid "Post Time"
 msgstr "Veröffentlichungszeit"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:170
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:186
 msgid "Posts will only be made from in this time range within scheduled days"
 msgstr "Beiträge werden nur innerhalb dieses Zeitrahmens an den geplanten Tagen erstellt"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:176
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:192
 msgctxt "Row label"
 msgid "Creation Type"
 msgstr "Erstellungstyp"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:179
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:195
 msgid "Subject"
 msgstr "Nische"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:180
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:196
 msgid "Subject & Topics"
 msgstr "Nische & Themen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:183
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:199
 msgid "This setting decides how we prompt the AI engine to create articles, 'Subject' will generate articles for a broad niche whilst 'Subject & Topics' allows you to generate more specific content"
 msgstr "Diese Einstellung entscheidet, wie wir die KI-Engine auffordern, Artikel zu erstellen. 'Nische' wird Artikel für eine breite Nische generieren, während 'Nische & Themen' es dir ermöglicht, spezifischeren Inhalt zu generieren"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:188
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:204
 msgctxt "Row label"
 msgid "Niche"
 msgstr "Nische"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:192
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:208
 msgid "The niche/subject of this article. This should be a fairly high level description which allows the AI engine to focus it's knowledge"
 msgstr "Die Nische/das Thema dieses Artikels. Dies sollte eine ziemlich hohe Beschreibungsebene sein, die es der KI-Engine ermöglicht, ihr Wissen zu fokussieren"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:197
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:213
 msgctxt "Row label"
 msgid "Topics"
 msgstr "Themen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:201
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:217
 msgid "If you would like to focus on specific topic(s) of your niche then enter them here. 1 per line"
 msgstr "Wenn du dich auf bestimmte(s) Thema(en) deiner Nische konzentrieren möchtest, dann gib sie hier ein. 1 pro Zeile"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:207
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:223
 msgctxt "Row label"
 msgid "Post Type"
 msgstr "Beitragstyp"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:210
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:226
 msgid "Publish"
 msgstr "Veröffentlichen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:211
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:227
 msgid "Draft"
 msgstr "Entwurf"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:214
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:230
 msgid "Setting to 'Publish' will make posts immediately public on your blog, select 'Draft' if you would like the option to review and manually approve articles"
 msgstr "Die Einstellung auf 'Veröffentlichen' wird Beiträge sofort öffentlich in deinem Blog machen, wähle 'Entwurf', wenn du die Möglichkeit haben möchtest, Artikel zu überprüfen und manuell zu genehmigen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:220
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:236
 msgctxt "Row label"
 msgid "Interlinking"
 msgstr "Verlinkung"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:223
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:257
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:239
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:273
 msgid "Disabled"
 msgstr "Deaktiviert"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:224
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:258
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:240
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:274
 msgid "Enabled"
 msgstr "Aktiviert"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:227
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:243
 msgid "Enabling interlinking will link from new posts to existing posts (made by the plugin) which use the same tag(s)"
 msgstr "Das Aktivieren der Verlinkung wird von neuen Beiträgen zu bestehenden Beiträgen (erstellt durch das Plugin) verlinken, die dieselben Tag(s) verwenden"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:232
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:248
 msgctxt "Row label"
 msgid "Interlinking Targets"
 msgstr "Verlinkungsziele"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:235
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:251
 msgid "This Project Only"
 msgstr "Nur dieses Projekt"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:236
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:252
 msgid "All Projects"
 msgstr "Alle Projekte"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:239
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:255
 msgid "Select if you would like to link between posts made just in this project or across all projects"
 msgstr "Wähle aus, ob du zwischen Beiträgen verlinken möchtest, die nur in diesem Projekt oder in allen Projekten erstellt wurden"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:244
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:260
 msgctxt "Row label"
 msgid "Number of Links"
 msgstr "Anzahl der Links"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:248
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:264
 msgid "The number of links that the plugin will attempt to create in each post"
 msgstr "Die Anzahl der Links, die das Plugin in jedem Beitrag zu erstellen versucht"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:254
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:270
 msgctxt "Row label"
 msgid "Target Linking"
 msgstr "Zielverlinkung"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:261
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:277
 msgid "Enable if you would like the plugin to insert outbound links to the URL(s) of your choice, enable this option"
 msgstr "Aktiviere diese Option, wenn du möchtest, dass das Plugin ausgehende Links zu den von dir gewählten URL(s) einfügt"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:266
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:282
 msgctxt "Row label"
 msgid "Target Linking Percentage"
 msgstr "Prozentsatz der Zielverlinkung"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:271
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:287
 msgid "The percentage of posts in which target links will be added"
 msgstr "Der Prozentsatz der Beiträge, in denen Ziel-Links hinzugefügt werden"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:276
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:292
 msgctxt "Row label"
 msgid "Targets"
 msgstr "Ziele"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:283
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:299
 msgid "Add Link"
 msgstr "Link hinzufügen"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:298
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:314
 msgctxt "Row label"
 msgid "Authors"
 msgstr "Autoren"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:307
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:323
 msgid "Select which user(s) posts should be made as. If more than 1 is selected than a random user will be used from the selection each time"
 msgstr "Wähle aus, als welcher Benutzer Beiträge erstellt werden sollen. Wenn mehr als einer ausgewählt ist, wird jedes Mal ein zufälliger Benutzer aus der Auswahl verwendet"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:313
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:329
 msgctxt "Row label"
 msgid "Categories"
 msgstr "Kategorien"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:319
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:335
 msgid "Select which categories posts should be assigned to. If none are selected posts will be made uncategorized"
 msgstr "Wähle aus, welchen Kategorien Beiträge zugeordnet werden sollen. Wenn keine ausgewählt sind, werden Beiträge ohne Kategorie erstellt"
 
-#: admin/class-contentkoenig-admin-projects-page-add-edit.php:325
+#: admin/class-contentkoenig-admin-projects-page-add-edit.php:341
 #: admin/class-contentkoenig-admin-settings-page.php:19
 msgid "Save Changes"
 msgstr ""
@@ -522,36 +531,36 @@ msgstr "OpenAI API-Schlüssel"
 msgid "Enter your OpenAI API key."
 msgstr "Gib deinen OpenAI API-Schlüssel ein."
 
-#: admin/class-contentkoenig-admin.php:78
+#: admin/class-contentkoenig-admin.php:81
 msgctxt "Admin notice"
 msgid "<a href=\"%s\">Enter your licence key</a> to start using %s"
 msgstr "<a href=\"%s\">Gib deinen Lizenzschlüssel ein</a>, um %s zu verwenden"
 
-#: admin/class-contentkoenig-admin.php:84
+#: admin/class-contentkoenig-admin.php:87
 msgctxt "Admin notice"
 msgid "Your %s account is not active, do you need to <a href=\"%s\">update your licence key</a>?"
 msgstr "Dein %s Konto ist nicht aktiv, musst du deinen <a href=\"%s\">Lizenzschlüssel aktualisieren</a>?"
 
-#: admin/class-contentkoenig-admin.php:94
+#: admin/class-contentkoenig-admin.php:97
 msgid "Your licence key was successfully linked to this site!"
 msgstr "Dein Lizenzschlüssel wurde erfolgreich mit dieser Seite verknüpft!"
 
-#: admin/class-contentkoenig-admin.php:132
+#: admin/class-contentkoenig-admin.php:135
 msgctxt "Admin menu"
 msgid "Projects"
 msgstr "Projekte"
 
-#: admin/class-contentkoenig-admin.php:141
+#: admin/class-contentkoenig-admin.php:144
 msgctxt "Admin menu"
 msgid "Posts"
 msgstr "Beiträge"
 
-#: admin/class-contentkoenig-admin.php:150
+#: admin/class-contentkoenig-admin.php:153
 msgctxt "Admin menu"
 msgid "Licence Key"
 msgstr "Lizenzschlüssel"
 
-#: admin/class-contentkoenig-admin.php:159
+#: admin/class-contentkoenig-admin.php:162
 msgctxt "Admin menu"
 msgid "Settings"
 msgstr "Einstellungen"
@@ -591,12 +600,12 @@ msgstr "Unbekannter Status des Update-Checkers \"%s\""
 msgid "There is no changelog available."
 msgstr "Es ist kein Changelog verfügbar."
 
-#: public/class-contentkoenig-public.php:36
+#: public/class-contentkoenig-public.php:39
 msgctxt "cron interval"
 msgid "Every Minute"
 msgstr "Jede Minute"
 
-#: public/class-contentkoenig-public.php:41
+#: public/class-contentkoenig-public.php:44
 msgctxt "cron interval"
 msgid "Every Day"
 msgstr "Jeden Tag"

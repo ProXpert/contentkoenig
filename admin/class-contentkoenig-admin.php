@@ -286,6 +286,7 @@ class Contentkoenig_Admin {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $language = $_POST['language'];
+        $depth = $_POST['depth'];
         $max_posts_per_day = $_POST['max_posts_per_day'];
         $max_posts_total = $_POST['max_posts_total'];
         $post_days = $_POST['post_days'];
@@ -311,6 +312,7 @@ class Contentkoenig_Admin {
         $data = [
             'name' => $name,
             'language' => $language,
+            'depth' => $depth,
             'max_posts_per_day' => $max_posts_per_day,
             'max_posts_total' => $max_posts_total,
             'post_days' => json_encode($post_days),
@@ -346,6 +348,7 @@ class Contentkoenig_Admin {
     public function ajax_add_project(){
         $name = $_POST['name'];
         $language = $_POST['language'];
+        $depth = $_POST['depth'];
         $max_posts_per_day = $_POST['max_posts_per_day'];
         $max_posts_total = $_POST['max_posts_total'];
         $post_days = $_POST['post_days'];
@@ -368,6 +371,7 @@ class Contentkoenig_Admin {
         $id = $this->projects->add([
             'name' => $name,
             'language' => $language,
+            'depth' => $depth,
             'posts_made' => 0,
             'max_posts_per_day' => $max_posts_per_day,
             'max_posts_total' => $max_posts_total,

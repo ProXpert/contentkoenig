@@ -45,6 +45,7 @@ class Contentkoenig_Updater {
         $this->version_1_0_25();
         $this->version_1_0_32();
         $this->version_2024_02_01();
+        $this->version_2024_04_29();
 
         //wp_cache_delete ( 'alloptions', 'options' );
         update_option($this->plugin_slug . '_version', $this->plugin_version);
@@ -103,6 +104,11 @@ class Contentkoenig_Updater {
 
     private function version_2024_02_01_check(){
        return version_compare($this->existing_version, '2024.02.01') < 0;
+    }
+
+    private function version_2024_04_29_check(){
+       $query = $this->wpdb->prepare( 'SHOW COLUMNS FROM ' . $this->projectsTableName . ' LIKE %s', 'depth' );
+       return is_null($this->wpdb->get_row( $query ));
     }
 
     private function version_1_0_0(){
@@ -293,5 +299,17 @@ class Contentkoenig_Updater {
 
         $sql = "ALTER TABLE $this->postsTableName CHANGE COLUMN body body LONGTEXT DEFAULT NULL";
         $this->wpdb->query($sql);
+    }
+
+    private function version_2024_04_29(){
+        if(!$this->version_2024_04_29_check()){
+            return;
+        }
+
+        $query = $this->wpdb->prepare( 'SHOW COLUMNS FROM ' . $this->projectsTableName . ' LIKE %s', 'depth' );
+        if ( is_null($this->wpdb->get_row( $query ) ) ) {
+            $sql = "ALTER TABLE $this->projectsTableName ADD COLUMN depth INT DEFAULT 3";
+            $this->wpdb->query($sql);
+        }
     }
 }

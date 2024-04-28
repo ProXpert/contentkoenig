@@ -26,13 +26,14 @@ class Contentkoenig_Api {
         ]);
     }
 
-    public function post($promptType, $prompt, $callbackUrl, $language = 'en', $openai_api_key = null){
+    public function post($promptType, $prompt, $callbackUrl, $language = 'en', $depth = 3, $openai_api_key = null){
         return $this->postRequest('/post', [
             'prompt_type' => $promptType,
             'prompt' => $prompt,
             'callback_url' => $callbackUrl,
             'site_url' => $this->getSiteUrl(),
             'language' => $language,
+            'depth' => $depth,
             'openai_api_key' => $openai_api_key,
         ]);
     }
